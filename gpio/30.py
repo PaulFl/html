@@ -1,2 +1,2 @@
 from os import system
-system('echo 30 > /dev/ttyUSB0')
+system('echo 30 > /dev/arduino')
