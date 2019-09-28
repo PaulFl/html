@@ -24,9 +24,8 @@
                         'user' => $user));
     $resultat = $req->fetch();
     
-    echo $resultat['password'] . '<br />';
+    echo $_POST['user'] . '<br />';
     
-    echo $resultat['password'];
     //Comparaison du pass envoyé via le formulaire avec la base
     $isPasswordCorrect = $_POST['password'] == $resultat['password'];
     
