@@ -1,7 +1,7 @@
 <?php
 try
 {
-		$bdd = new PDO('mysql:host=localhost;dbname=x3_tresorerie;charset=utf8', 'root', 'paulflry');
+		$bdd = new PDO('mysql:host=localhost;dbname=x3_tresorerie;charset=utf8', 'x3_tresorerie_website', 'x3trezsafe');
 }
 catch(Exception $e)
 {
