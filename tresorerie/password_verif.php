@@ -19,7 +19,7 @@
     $reponse->closeCursor();
     
     //Récupération de l'utilisateur et de son pass hashé
-    $req = $bdd->prepare('SELECT surnom, password FROM users WHERE surnom = $_POST["password"]');
+    $req = $bdd->prepare("SELECT surnom, password FROM users WHERE surnom = $_POST['password']");
     $req->execute(array(
                         'user' => $user));
     $resultat = $req->fetch();
