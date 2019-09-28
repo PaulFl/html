@@ -6,7 +6,7 @@
     </head>
     <body>
         <p>Surnom et mot de passe pour acceder à ton compte stp bb</p>
-        <form action="secret.php" method="post">
+        <form action="password_verif.php" method="post">
 	    <p>
 		Surnom: 
 	    <input type="user" name="user" />
