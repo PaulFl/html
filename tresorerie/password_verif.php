@@ -18,14 +18,14 @@
     
     $reponse->closeCursor();
     
-    Récupération de l'utilisateur et de son pass hashé
+    //Récupération de l'utilisateur et de son pass hashé
     $req = $bdd->prepare('SELECT surnom, password FROM users WHERE surnom = :user');
     $req->execute(array(
                         'user' => $user));
     $resultat = $req->fetch();
     
     echo $resultat['password'];
-    Comparaison du pass envoyé via le formulaire avec la base
+    //Comparaison du pass envoyé via le formulaire avec la base
     $isPasswordCorrect = $_POST['password'] == $resultat['password'];
     
     if (!$resultat)
