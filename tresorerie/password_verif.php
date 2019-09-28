@@ -18,7 +18,7 @@
     
     $reponse->closeCursor();
     
-    $surnom = $_POST['user']
+    $surnom = $_POST['user'];
     
     //Récupération de l'utilisateur et de son pass hashé
     $req = $bdd->prepare('SELECT surnom, password FROM users WHERE surnom = $surnom');
