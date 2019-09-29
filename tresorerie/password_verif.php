@@ -10,7 +10,6 @@
     
 
     
-    $reponse->closeCursor();
     
     $surnom = $_POST['user'];
     
