@@ -48,7 +48,7 @@
      
      ?>
     <form>
-    <br><br>
+    <br>
     <input type="button" value="Deconnexion" onclick="window.location.href='login.php'" />
     </form>
  
