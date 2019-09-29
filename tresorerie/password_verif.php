@@ -16,7 +16,7 @@
      $surnom = $_POST['user'];
      
      //Récupération de l'utilisateur et de son pass hashé
-     $req = $bdd->prepare('SELECT surnom, password, nom, prenom FROM users WHERE surnom = "'. $surnom . '"');
+     $req = $bdd->prepare('SELECT surnom, password, nom, prenom, phone_number, mail_address FROM users WHERE surnom = "'. $surnom . '"');
      $req->execute(array(
                          'user' => $user));
      $resultat = $req->fetch();
@@ -36,7 +36,7 @@
              session_start();
              $_SESSION['id'] = $resultat['id'];
              $_SESSION['pseudo'] = $pseudo;
-             echo $resultat['prenom'] . ' ' . $resultat['nom'] . ', (' .  $surnom . ')' . '<br /><br /><br />';
+             echo $resultat['prenom'] . ' ' . $resultat['nom'] . '  (' .  $surnom . ') - ' . $resultat['phone_number'] . ' - ' . $resultat['mail_address'] . '<br /><br /><br />';
              echo 'Bienvenue BG !';
          }
          else {
