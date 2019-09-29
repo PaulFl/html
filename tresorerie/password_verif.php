@@ -13,9 +13,6 @@
          die('Erreur : '.$e->getMessage());
      }
      
-
-     
-     
      $surnom = $_POST['user'];
      
      //Récupération de l'utilisateur et de son pass hashé
@@ -24,14 +21,14 @@
                          'user' => $user));
      $resultat = $req->fetch();
      
-     echo $resultat['prenom'] . ' ' . $resultat['nom'] . ', (' .  $surnom . ')' . '<br /><br /><br />';
+     
      
      //Comparaison du pass envoyé via le formulaire avec la base
      $isPasswordCorrect = $_POST['password'] == $resultat['password'];
      
      if (!$resultat)
      {
-         echo 'Mauvais identifiant ou mot de passe !';
+         echo 'Il y a un problème, appelle Zynahpapa !';
      }
      else
      {
@@ -39,10 +36,11 @@
              session_start();
              $_SESSION['id'] = $resultat['id'];
              $_SESSION['pseudo'] = $pseudo;
+             echo $resultat['prenom'] . ' ' . $resultat['nom'] . ', (' .  $surnom . ')' . '<br /><br /><br />';
              echo 'Bienvenue BG !';
          }
          else {
-             echo 'Mauvais identifiant ou mot de passe !';
+             echo 'Il y a un problème, appelle Zynahpapa !';
          }
      }
      
