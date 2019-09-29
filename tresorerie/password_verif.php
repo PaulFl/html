@@ -34,7 +34,7 @@
             session_start();
             $_SESSION['id'] = $resultat['id'];
             $_SESSION['pseudo'] = $pseudo;
-            echo 'Vous êtes connecté !';
+            echo 'Bienvenue BG !';
         }
         else {
             echo 'Mauvais identifiant ou mot de passe !';
