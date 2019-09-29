@@ -19,7 +19,7 @@
                         'user' => $user));
     $resultat = $req->fetch();
     
-    echo $resultat['prenom'] . $resultat['nom'] . ', (' .  $surnom . ')' . '<br />';
+    echo $resultat['prenom'] . ' ' . $resultat['nom'] . ', (' .  $surnom . ')' . '<br />';
     
     //Comparaison du pass envoyé via le formulaire avec la base
     $isPasswordCorrect = $_POST['password'] == $resultat['password'];
