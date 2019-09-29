@@ -51,7 +51,7 @@
      ?>
 
     <form>
-    <input type="button" value="Put Your Text Here" onclick="window.location.href='http://www.hyperlinkcode.com/button-links.php'" />
+    <input type="button" value="Deconnexion" onclick="window.location.href='login.php'" />
     </form>
  
  </body>
