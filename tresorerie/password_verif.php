@@ -8,25 +8,19 @@
         die('Erreur : '.$e->getMessage());
     }
     
-    $reponse = $bdd->query('SELECT nom FROM users LIMIT 0, 10');
-    
-    echo '<p>Voici les 10 premières entrées de la table users :</p>';
-    while ($donnees = $reponse->fetch())
-    {
-        echo $donnees['nom'] . '<br />';
-    }
+
     
     $reponse->closeCursor();
     
     $surnom = $_POST['user'];
     
     //Récupération de l'utilisateur et de son pass hashé
-    $req = $bdd->prepare('SELECT surnom, password FROM users WHERE surnom = "'. $surnom . '"');
+    $req = $bdd->prepare('SELECT surnom, password, nom, prenom FROM users WHERE surnom = "'. $surnom . '"');
     $req->execute(array(
                         'user' => $user));
     $resultat = $req->fetch();
     
-    echo 'SELECT surnom, password FROM users WHERE surnom = "'. $surnom . '"'  . '<br />';
+    echo $prenom . $nom . ', (' .  $surnom . ')' . '<br />';
     
     //Comparaison du pass envoyé via le formulaire avec la base
     $isPasswordCorrect = $_POST['password'] == $resultat['password'];
