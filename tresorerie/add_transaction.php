@@ -14,6 +14,9 @@
         <br>
         Motif:
         <input type="text" name="title" />
+        <br>
+        Montant:
+        <input type="number" step="0.01" name="montant" />
         <br><br>
         Qui a payé:
         <select name="creancier">
