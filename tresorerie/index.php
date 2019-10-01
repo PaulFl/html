@@ -8,12 +8,12 @@
         die('Erreur : '.$e->getMessage());
     }
     
-    $reponse = $bdd->query('SELECT nom FROM users LIMIT 0, 10');
+    $reponse = $bdd->query('SELECT surnom FROM users LIMIT 0, 10');
     
     echo '<p>Voici les 10 premières entrées de la table users :</p>';
     while ($donnees = $reponse->fetch())
     {
-        echo $donnees['nom'] . '<br />';
+        echo $donnees['surnom'] . '<br />';
     }
     
     $reponse->closeCursor();
