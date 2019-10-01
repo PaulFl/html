@@ -59,7 +59,7 @@ while ($donnees = $reponse->fetch()) {
     }
 }
 echo "<br>";
-echo "ENREGISTRÉ";
+echo "ENREGISTRÉ, NE PAS RAFRAICHIR LA PAGE";
 ?>
 
 </body>
