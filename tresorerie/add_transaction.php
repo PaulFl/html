@@ -26,14 +26,14 @@
             {
                 die('Erreur : '.$e->getMessage());
             }
-            $reponse = $bdd->query('SELECT surnom FROM users');
+            $reponse = $bdd->query('SELECT surnom FROM users order by surnom');
             while ($donnees = $reponse->fetch())
             {
                 echo "<option value='" . $donnees['surnom'] . "'>" . $donnees['surnom'] . "</option>";
             }
             echo "</select><br><br>";
 
-            $reponse = $bdd->query('SELECT surnom FROM users');
+            $reponse = $bdd->query('SELECT surnom FROM users order by surnom');
             while ($donnees = $reponse->fetch())
             {
                 echo "<input type='checkbox' name='" . $donnees['surnom'] . " value='" . $donnees['surnom'] . "'> " . $donnees['surnom'] . "  ";
