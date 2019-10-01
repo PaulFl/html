@@ -39,7 +39,7 @@
             $reponse = $bdd->query('SELECT surnom FROM users order by surnom');
             while ($donnees = $reponse->fetch())
             {
-                echo "<input type='checkbox' name='" . $donnees['surnom'] . " value='" . $donnees['surnom'] . "'> " . $donnees['surnom'] . "  ";
+                echo "<input type='checkbox' name='" . $donnees['surnom'] . "' id='" . $donnees['surnom'] . "'/> <label for='" . $donnees['surnom'] . "'>". $donnees['surnom'] . "  </label>";
             }
             ?>
         </select>
