@@ -51,7 +51,6 @@ $prix_personne = round($prix_personne, 2, PHP_ROUND_HALF_UP);
 echo "Montant par personne: " . $prix_personne . "€<br>";
 
 
-
 $reponse = $bdd->query('SELECT surnom, id FROM users');
 while ($donnees = $reponse->fetch()) {
     if (isset($_POST[$donnees['surnom']]) && $donnees['id'] != $creancier) {

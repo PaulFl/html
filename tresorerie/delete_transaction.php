@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trésorerie X3 - Nouvelle transaction</title>
 <body>
@@ -10,8 +10,10 @@ try {
 } catch (Exception $e) {
     die('Erreur : ' . $e->getMessage());
 }
+$id_a_supprimer = intval(substr($_POST[6], 11))
+echo $id_a_supprimer;
+$bdd->exec("DELETE from transactions where id=" . $id_a_supprimer);
 
-echo intval(substr($_POST[6], 11));
 
 
 ?>
