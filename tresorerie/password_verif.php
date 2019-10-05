@@ -35,7 +35,7 @@ if (!$resultat) {
 
         echo "Tes dettes: <br>";
         echo "<table>";
-        $reponse = $bdd->query('SELECT transactions.id as transacid, transactions.motif, transactions.date, transactions.montant, transactions.debiteur, users.id, users.surnom, users.phone_number FROM transactions JOIN users on transactions.creancier = users.id where transactions.debiteur = ' . $resultat['id'] );
+        $reponse = $bdd->query('SELECT transactions.id as transacid, transactions.motif, transactions.date, transactions.montant, transactions.debiteur, users.id, users.surnom, users.phone_number FROM transactions JOIN users on transactions.creancier = users.id where transactions.debiteur = ' . $resultat['id']);
 
         echo "<tr>";
         echo "<td>";
@@ -84,7 +84,7 @@ if (!$resultat) {
 
         echo "Tes créances: <br>";
         echo "<table>";
-        $reponse = $bdd->query('SELECT transactions.id as transacid, transactions.motif, transactions.date, transactions.montant, transactions.creancier, transactions.debiteur, users.id, users.surnom, users.phone_number FROM transactions JOIN users on transactions.debiteur = users.id where transactions.creancier = ' . $resultat['id'] );
+        $reponse = $bdd->query('SELECT transactions.id as transacid, transactions.motif, transactions.date, transactions.montant, transactions.creancier, transactions.debiteur, users.id, users.surnom, users.phone_number FROM transactions JOIN users on transactions.debiteur = users.id where transactions.creancier = ' . $resultat['id']);
 
         echo "<tr>";
         echo "<td>";
@@ -104,6 +104,9 @@ if (!$resultat) {
         echo "</td>";
         echo "<td>";
         echo "SON NUMERO";
+        echo "</td>";
+        echo "<td>";
+        echo "PAYÉ ?";
         echo "</td>";
         echo "</tr>";
 
@@ -126,6 +129,9 @@ if (!$resultat) {
             echo "</td>";
             echo "<td>";
             echo $donnees['phone_number'];
+            echo "</td>";
+            echo "<td>";
+            echo "<form action=\"delete_transaction.php\" method=\"post\"><input type=\"submit\" value=\"Payé ! Id: " . $donnees['transacid'] . "\" name=\"" . 6 . "\"/></form>";
             echo "</td>";
             echo "</tr>";
         }
