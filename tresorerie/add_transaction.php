@@ -26,13 +26,35 @@
             } catch (Exception $e) {
                 die('Erreur : ' . $e->getMessage());
             }
-            $reponse = $bdd->query('SELECT surnom FROM users order by surnom');
+            echo "<option disabled>--- 0As ---</option>";
+            $reponse = $bdd->query('SELECT surnom, cat from users WHERE cat=\'0A\' order by surnom');
+            while ($donnees = $reponse->fetch()) {
+                echo "<option value='" . $donnees['surnom'] . "'>" . $donnees['surnom'] . "</option>";
+            }
+            echo "<option disabled>--- 2As ---</option>";
+            $reponse = $bdd->query('SELECT surnom, cat from users WHERE cat=\'2A\' order by surnom');
+            while ($donnees = $reponse->fetch()) {
+                echo "<option value='" . $donnees['surnom'] . "'>" . $donnees['surnom'] . "</option>";
+            }
+            echo "<option disabled>--- AFFs ---</option>";
+            $reponse = $bdd->query('SELECT surnom, cat from users WHERE cat=\'AFF\' order by surnom');
             while ($donnees = $reponse->fetch()) {
                 echo "<option value='" . $donnees['surnom'] . "'>" . $donnees['surnom'] . "</option>";
             }
             echo "</select><br><br>";
 
-            $reponse = $bdd->query('SELECT surnom FROM users order by surnom');
+            echo "0As:   <br>";
+            $reponse = $bdd->query("SELECT surnom, cat from users WHERE cat='0A' order by surnom");
+            while ($donnees = $reponse->fetch()) {
+                echo "<input type='checkbox' name='" . $donnees['surnom'] . "' id='" . $donnees['surnom'] . "'/> <label for='" . $donnees['surnom'] . "'>" . $donnees['surnom'] . "  </label>";
+            }
+            echo "<br>2As:   <br>";
+            $reponse = $bdd->query("SELECT surnom, cat from users WHERE cat='2A' order by surnom");
+            while ($donnees = $reponse->fetch()) {
+                echo "<input type='checkbox' name='" . $donnees['surnom'] . "' id='" . $donnees['surnom'] . "'/> <label for='" . $donnees['surnom'] . "'>" . $donnees['surnom'] . "  </label>";
+            }
+            echo "<br>AFFs:   <br>";
+            $reponse = $bdd->query("SELECT surnom, cat from users WHERE cat='AFF' order by surnom");
             while ($donnees = $reponse->fetch()) {
                 echo "<input type='checkbox' name='" . $donnees['surnom'] . "' id='" . $donnees['surnom'] . "'/> <label for='" . $donnees['surnom'] . "'>" . $donnees['surnom'] . "  </label>";
             }
