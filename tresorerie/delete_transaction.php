@@ -10,7 +10,7 @@ try {
 } catch (Exception $e) {
     die('Erreur : ' . $e->getMessage());
 }
-$id_a_supprimer = intval(substr($_POST[6], 11))
+$id_a_supprimer = intval(substr($_POST[6], 11));
 echo $id_a_supprimer;
 $bdd->exec("DELETE from transactions where id=" . $id_a_supprimer);
 
