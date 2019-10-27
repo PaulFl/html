@@ -31,7 +31,15 @@ if (!$resultat) {
         $_SESSION['id'] = $resultat['id'];
         $_SESSION['pseudo'] = $resultat['surnom'];
         echo "<b>";
-        echo $resultat['prenom'] . ' ' . $resultat['nom'] . '  (' . $surnom . ') - ' . '  (Id: ' . $resultat['id'] . ') - ' . $resultat['cat'] . ' - ' . $resultat['phone_number'] . ' - ' . $resultat['mail_address'] . '<br /><br /><br />';
+        echo $resultat['prenom'] . ' ' . $resultat['nom'] . '  (' . $resultat['surnom'] . ') - ' . '  (Id: ' . $resultat['id'] . ') - ' . $resultat['cat'] . ' - ' . $resultat['phone_number'] . ' - ' . $resultat['mail_address'] . '<br /><br />';
+        echo "</b>";
+
+        echo "<form action=\"modify_infos.php\" method=\"post\"><input type=\"submit\" value=\"Modifier mes infos - Id: " . $resultat['id'] . "\" name=\"" . 6 . "\"/></form>";
+
+        echo "<br>";
+
+
+        echo "<b>";
         echo 'Bienvenue BG ! <br><br>';
         echo "</b>";
 
@@ -97,7 +105,7 @@ if (!$resultat) {
         echo "<b> </b>";
         echo "</td>";
         echo "<td>";
-        echo "<b>".$total_dettes."€</b>";
+        echo "<b>" . $total_dettes . "€</b>";
         echo "</td>";
         echo "<td>";
         echo "<b> </b>";
