@@ -7,6 +7,10 @@
 </head>
 <!--<link href="minimal-table.css" rel="stylesheet" type="text/css">-->
 <body>
+<form>
+    <br>
+    <input type="button" value="Accueil" onclick="window.location.href='../index.html'"/>
+</form>
 <p><b>Nouvelle dépense: </b></p>
 <form action="transaction_to_db.php" method="post">
     <p>

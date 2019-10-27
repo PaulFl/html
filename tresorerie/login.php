@@ -6,6 +6,10 @@
     <title>Trésorerie X3</title>
 </head>
 <body>
+<form>
+    <br>
+    <input type="button" value="Accueil" onclick="window.location.href='../index.html'"/>
+</form>
 <p>Surnom et mot de passe pour acceder à ton compte stp bb</p>
 <form action="password_verif.php" method="post">
     <p>
