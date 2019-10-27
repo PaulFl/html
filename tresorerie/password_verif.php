@@ -60,7 +60,10 @@ if (!$resultat) {
         echo "</td>";
         echo "</tr>";
 
+        $total_dettes = 0;
+
         while ($donnees = $reponse->fetch()) {
+            $total_dettes += $donnees['montant'];
             echo "<tr>";
             echo "<td>";
             echo $donnees['transacid'];
@@ -82,6 +85,28 @@ if (!$resultat) {
             echo "</td>";
             echo "</tr>";
         }
+
+        echo "<tr>";
+        echo "<td>";
+        echo "<b>TOTAL</b>";
+        echo "</td>";
+        echo "<td>";
+        echo "<b> </b>";
+        echo "</td>";
+        echo "<td>";
+        echo "<b> </b>";
+        echo "</td>";
+        echo "<td>";
+        echo "<b>".$total_dettes."€</b>";
+        echo "</td>";
+        echo "<td>";
+        echo "<b> </b>";
+        echo "</td>";
+        echo "<td>";
+        echo "<b> </b>";
+        echo "</td>";
+        echo "</tr>";
+
         echo "</table><br><br>";
 
         echo "Tes créances: <br>";
@@ -112,7 +137,10 @@ if (!$resultat) {
         echo "</td>";
         echo "</tr>";
 
+        $total_creances = 0;
+
         while ($donnees = $reponse->fetch()) {
+            $total_creances += $donnees['montant'];
             echo "<tr>";
             echo "<td>";
             echo $donnees['transacid'];
@@ -137,9 +165,33 @@ if (!$resultat) {
             echo "</td>";
             echo "</tr>";
         }
+
+        echo "<tr>";
+        echo "<td>";
+        echo "<b>TOTAL</b>";
+        echo "</td>";
+        echo "<td>";
+        echo "<b> </b>";
+        echo "</td>";
+        echo "<td>";
+        echo "<b> </b>";
+        echo "</td>";
+        echo "<td>";
+        echo "<b>" . $total_creances . "€</b>";
+        echo "</td>";
+        echo "<td>";
+        echo "<b> </b>";
+        echo "</td>";
+        echo "<td>";
+        echo "<b> </b>";
+        echo "</td>";
+        echo "<td>";
+        echo "<b> </b>";
+        echo "</td>";
+        echo "</tr>";
+
         echo "</table>";
 
-        // TODO: add sum
 
     } else {
         echo 'Il y a un problème, appelle Zynahpapa !';
