@@ -36,7 +36,6 @@ echo "<b>Mot de passe: </b>";
 echo "<input type=\"text\" name=\"password\" value='" . $_POST['password'] . "'readonly/>";
 echo "<br>";
 
-echo "UPDATE users SET nom = '" . $_POST['nom'] . "', prenom = '" . $_POST['prenom'] . "', mail_address = '" . $_POST['mail_address'] . "', phone_number = '" . $_POST['phone_number'] . "', password = '" . $_POST['password'] . "' WHERE Id = '" . $_POST['user_id'] . "'";
 
 $bdd->exec("UPDATE users SET nom = '" . $_POST['nom'] . "', prenom = '" . $_POST['prenom'] . "', mail_address = '" . $_POST['mail_address'] . "', phone_number = '" . $_POST['phone_number'] . "', password = '" . $_POST['password'] . "' WHERE Id = '" . $_POST['user_id'] . "'");
 
