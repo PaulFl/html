@@ -7,19 +7,19 @@
 </head>
 <!--<link href="minimal-table.css" rel="stylesheet" type="text/css">-->
 <body>
-<p>Nouvelle dépense: </p>
+<p><b>Nouvelle dépense: </b></p>
 <form action="transaction_to_db.php" method="post">
     <p>
-        Date:
+        <b>Date</b>:
         <input type="date" name="date"/>
         <br>
-        Motif:
+        <b>Motif</b>:
         <input type="text" name="title"/>
         <br>
-        Montant:
+        <b>Montant</b>:
         <input type="number" step="0.01" name="montant"/>
         <br><br>
-        Qui a payé:
+        <b>Qui a payé</b>:
         <select name="creancier">
             <?php
             try {
@@ -47,30 +47,30 @@
             while ($donnees = $reponse->fetch()) {
                 echo "<option value='" . $donnees['surnom'] . "'>" . $donnees['surnom'] . "</option>";
             }
-            echo "</select><br><br>Qui a consommé:<br><br>";
+            echo "</select><br><br><b>Qui a consommé:</b><br><br>";
 
-            echo "0As:   <br>";
+            echo "<b>0As:   </b><br>";
             $reponse = $bdd->query("SELECT surnom, cat from users WHERE cat='0A' order by surnom");
             while ($donnees = $reponse->fetch()) {
                 echo "<input type='checkbox' name='" . $donnees['surnom'] . "' id='" . $donnees['surnom'] . "'/> <label for='" . $donnees['surnom'] . "'>" . $donnees['surnom'] . "  </label>";
                 echo "<input type=\"number\" step=\"1\" name=\"coef_" . $donnees['surnom'] . "\" value='1' placeholder='Coeff' style=\"width: 3em;\"/>";
                 echo "&nbsp; &nbsp;";
             }
-            echo "<br>2As:   <br>";
+            echo "<br><b>2As:  </b><br>";
             $reponse = $bdd->query("SELECT surnom, cat from users WHERE cat='2A' order by surnom");
             while ($donnees = $reponse->fetch()) {
                 echo "<input type='checkbox' name='" . $donnees['surnom'] . "' id='" . $donnees['surnom'] . "'/> <label for='" . $donnees['surnom'] . "'>" . $donnees['surnom'] . "  </label>";
                 echo "<input type=\"number\" step=\"1\" name=\"coef_" . $donnees['surnom'] . "\" value='1' placeholder='Coeff' style=\"width: 3em;\"/>";
                 echo "&nbsp; &nbsp;";
             }
-            echo "<br>AFFs:   <br>";
+            echo "<br><b>AFFs:  </b> <br>";
             $reponse = $bdd->query("SELECT surnom, cat from users WHERE cat='AFF' order by surnom");
             while ($donnees = $reponse->fetch()) {
                 echo "<input type='checkbox' name='" . $donnees['surnom'] . "' id='" . $donnees['surnom'] . "'/> <label for='" . $donnees['surnom'] . "'>" . $donnees['surnom'] . "  </label>";
                 echo "<input type=\"number\" step=\"1\" name=\"coef_" . $donnees['surnom'] . "\" value='1' placeholder='Coeff' style=\"width: 3em;\"/>";
                 echo "&nbsp; &nbsp;";
             }
-            echo "<br>nAs:   <br>";
+            echo "<br><b>nAs: </b>  <br>";
             $reponse = $bdd->query("SELECT surnom, cat from users WHERE cat='nA' order by surnom");
             while ($donnees = $reponse->fetch()) {
                 echo "<input type='checkbox' name='" . $donnees['surnom'] . "' id='" . $donnees['surnom'] . "'/> <label for='" . $donnees['surnom'] . "'>" . $donnees['surnom'] . "  </label>";
