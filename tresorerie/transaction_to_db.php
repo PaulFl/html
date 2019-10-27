@@ -61,5 +61,12 @@ echo "<br>";
 echo "ENREGISTRÉ, NE PAS RAFRAICHIR LA PAGE";
 ?>
 
+<form>
+    <br>
+    <input type="button" value="Retour" onclick="window.location.href='../index.html'"/>
+</form>
+
+
+
 </body>
 </html>
