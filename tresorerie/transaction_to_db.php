@@ -18,9 +18,11 @@ echo "Date: " . $_POST['date'] . "<br>";
 $reponse = $bdd->query('SELECT surnom FROM users order by surnom');
 $nombre_consommateurs = 0;
 $prix_personne = 0.0;
+
+
 while ($donnees = $reponse->fetch()) {
     if (isset($_POST[$donnees['surnom']])) {
-        $nombre_consommateurs++;
+        $nombre_consommateurs = $nombre_consommateurs + $_POST["coef_" . $donnees['surnom']];
     }
 }
 $reponse = $bdd->query("SELECT id from users where surnom = '" . $_POST['creancier'] . "'");
@@ -41,6 +43,9 @@ while ($donnees = $reponse->fetch()) {
         echo $donnees['surnom'];
         echo " (Id: ";
         echo $donnees['id'];
+        echo ")";
+        echo " (Coef: ";
+        echo $_POST["coef_" . $donnees['surnom']];
         echo ") - ";
     }
 }
@@ -54,7 +59,8 @@ echo "Montant par personne: " . $prix_personne . "€<br>";
 $reponse = $bdd->query('SELECT surnom, id FROM users');
 while ($donnees = $reponse->fetch()) {
     if (isset($_POST[$donnees['surnom']]) && $donnees['id'] != $creancier) {
-        $bdd->exec("INSERT INTO transactions (creancier, debiteur, montant, motif) values (" . $creancier . ", " . $donnees['id'] . ', ' . $prix_personne . ", '" . $_POST['title'] . "')");
+        $prix_a_payer = $prix_personne * $_POST["coef_" . $donnees['surnom']];
+        $bdd->exec("INSERT INTO transactions (creancier, debiteur, montant, motif) values (" . $creancier . ", " . $donnees['id'] . ', ' . $prix_a_payer . ", '" . $_POST['title'] . "')");
     }
 }
 echo "<br>";

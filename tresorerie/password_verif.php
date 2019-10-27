@@ -139,6 +139,8 @@ if (!$resultat) {
         }
         echo "</table>";
 
+        // TODO: add sum
+
     } else {
         echo 'Il y a un problème, appelle Zynahpapa !';
     }
