@@ -30,8 +30,10 @@ if (!$resultat) {
         session_start();
         $_SESSION['id'] = $resultat['id'];
         $_SESSION['pseudo'] = $resultat['surnom'];
+        echo "<b>";
         echo $resultat['prenom'] . ' ' . $resultat['nom'] . '  (' . $surnom . ') - ' . '  (Id: ' . $resultat['id'] . ') - ' . $resultat['cat'] . ' - ' . $resultat['phone_number'] . ' - ' . $resultat['mail_address'] . '<br /><br /><br />';
         echo 'Bienvenue BG ! <br><br>';
+        echo "</b>";
 
         echo "Tes dettes: <br>";
         echo "<table>";
@@ -39,22 +41,22 @@ if (!$resultat) {
 
         echo "<tr>";
         echo "<td>";
-        echo "Id";
+        echo "<b>Id</b>";
         echo "</td>";
         echo "<td>";
-        echo "DATE";
+        echo "<b>DATE</b>";
         echo "</td>";
         echo "<td>";
-        echo "MOTIF";
+        echo "<b>MOTIF</b>";
         echo "</td>";
         echo "<td>";
-        echo "MONTANT";
+        echo "<b>MONTANT</b>";
         echo "</td>";
         echo "<td>";
-        echo "CREANCIER";
+        echo "<b>CREANCIER</b>";
         echo "</td>";
         echo "<td>";
-        echo "SON NUMERO";
+        echo "<b>SON NUMERO</b>";
         echo "</td>";
         echo "</tr>";
 
@@ -88,25 +90,25 @@ if (!$resultat) {
 
         echo "<tr>";
         echo "<td>";
-        echo "Id";
+        echo "<b>Id</b>";
         echo "</td>";
         echo "<td>";
-        echo "DATE";
+        echo "<b>DATE</b>";
         echo "</td>";
         echo "<td>";
-        echo "MOTIF";
+        echo "<b>MOTIF</b>";
         echo "</td>";
         echo "<td>";
-        echo "MONTANT";
+        echo "<b>MONTANT</b>";
         echo "</td>";
         echo "<td>";
-        echo "DEBITEUR";
+        echo "<b>DEBITEUR</b>";
         echo "</td>";
         echo "<td>";
-        echo "SON NUMERO";
+        echo "<b>SON NUMERO</b>";
         echo "</td>";
         echo "<td>";
-        echo "PAYÉ ?";
+        echo "<b>PAYÉ ?</b>";
         echo "</td>";
         echo "</tr>";
 
