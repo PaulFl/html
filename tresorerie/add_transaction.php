@@ -15,7 +15,7 @@
 <form action="transaction_to_db.php" method="post">
     <p>
         <b>Date</b>:
-        <input type="date" name="date"/>
+        <input type="date" name="date" value="<?php echo date('Y-m-d'); ?>"/>
         <br>
         <b>Motif</b>:
         <input type="text" name="title"/>
