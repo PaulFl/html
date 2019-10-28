@@ -60,7 +60,8 @@ $reponse = $bdd->query('SELECT surnom, id FROM users');
 while ($donnees = $reponse->fetch()) {
     if (isset($_POST[$donnees['surnom']]) && $donnees['id'] != $creancier) {
         $prix_a_payer = $prix_personne * $_POST["coef_" . $donnees['surnom']];
-        $bdd->exec("INSERT INTO transactions (creancier, debiteur, montant, motif) values (" . $creancier . ", " . $donnees['id'] . ', ' . $prix_a_payer . ", '" . $_POST['title'] . "')");
+        $bdd->exec("INSERT INTO transactions (creancier, debiteur, montant, motif, date) values (" . $creancier . ", " . $donnees['id'] . ', ' . $prix_a_payer . ", '" . $_POST['title'] . "', '" . $_POST['date'] .  "')");
+        echo "INSERT INTO transactions (creancier, debiteur, montant, motif, date) values (" . $creancier . ", " . $donnees['id'] . ', ' . $prix_a_payer . ", '" . $_POST['title'] . "', '" . $_POST['date'] .  "')";
     }
 }
 echo "<br>";
