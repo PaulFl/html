@@ -31,9 +31,11 @@ echo "<br>";
 echo "<form action=\"confirm_delete_transaction.php\" method=\"post\"><input type=\"submit\" value=\"Confirmer la suppression Id: " . $id_a_supprimer . "\" name=\"" . 6 . "\"/></form>";
 //$bdd->exec("DELETE from transactions where id=" . $id_a_supprimer);
 
-
-
 ?>
+<form>
+    <br>
+    <input type="button" value="Retour" onclick="window.location.href='login.php'"/>
+</form>
 
 </body>
 </html>
