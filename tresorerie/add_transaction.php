@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trésorerie X3 - Nouvelle transaction</title>
 </head>
-<!--<link href="minimal-table.css" rel="stylesheet" type="text/css">-->
+<link href="minimal-table.css" rel="stylesheet" type="text/css">
 <body>
 <form>
     <br>
@@ -21,16 +21,16 @@
 <p><b>Nouvelle dépense: </b></p>
 <form action="transaction_to_db.php" method="post">
     <p>
-        <b>Date</b>:
-        <input type="date" name="date" value="<?php echo date('Y-m-d'); ?>"/>
+        <b>Date:</b>
+        <input type="date" name="date" value="<?php date_default_timezone_set('Europe/Paris'); echo date('Y-m-d'); ?>"/>
         <br>
-        <b>Motif</b>:
+        <b>Motif:</b>
         <input type="text" name="title"/>
         <br>
-        <b>Montant</b>:
+        <b>Montant:</b>
         <input type="number" step="0.01" name="montant"/>
         <br><br>
-        <b>Qui a payé</b>:
+        <b>Qui a payé:</b>
         <select name="creancier">
             <?php
             try {

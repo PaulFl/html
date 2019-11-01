@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trésorerie X3 - Nouvelle transaction</title>
 </head>
+<link href="minimal-table.css" rel="stylesheet" type="text/css">
 <body>
 <p>Récapitulatif<br></p>
 <?php

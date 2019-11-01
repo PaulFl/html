@@ -52,6 +52,8 @@ if (!$resultat) {
         echo "<b>";
         echo 'Bienvenue BG ! <br><br>';
         echo "</b>";
+        date_default_timezone_set('Europe/Paris');
+        $bdd->exec("INSERT INTO connections (datetime, user_id) values ('" . date('Y-m-d H:i:s') . "', " . $resultat['id'] . ")");
 
         echo "Tes dettes: <br>";
         echo "<table>";

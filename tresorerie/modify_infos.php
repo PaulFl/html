@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trésorerie X3 - Mes infos</title>
 </head>
+<link href="minimal-table.css" rel="stylesheet" type="text/css">
 <body>
 <form>
     <br>
