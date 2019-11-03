@@ -57,7 +57,7 @@ if (!$resultat) {
 
         echo "Tes dettes: <br>";
         echo "<table>";
-        $reponse = $bdd->query('SELECT transactions.id as transacid, transactions.motif, transactions.date, transactions.montant, transactions.debiteur, users.id, users.surnom, users.phone_number FROM transactions JOIN users on transactions.creancier = users.id where transactions.debiteur = ' . $resultat['id']);
+        $reponse = $bdd->query('SELECT transactions.id as transacid, transactions.motif, transactions.date, transactions.montant, transactions.debiteur, users.id, users.surnom, users.phone_number FROM transactions JOIN users on transactions.creancier = users.id where transactions.debiteur = ' . $resultat['id'] . " ORDER BY users.id");
 
         echo "<tr>";
         echo "<td>";
