@@ -43,6 +43,10 @@ if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])) {
     echo "Tes dettes: <br>";
     echo "<table>";
     $reponse = $bdd->query('SELECT transactions.id as transacid, transactions.motif, transactions.date, transactions.montant, transactions.debiteur, users.id, users.surnom, users.phone_number FROM transactions JOIN users on transactions.creancier = users.id where transactions.debiteur = ' . $resultat['id'] . " ORDER BY users.id");
+    $response_totals = $bdd->query('SELECT count(transactions.Id) as nombre, sum(transactions.montant) as somme, transactions.debiteur, users.id
+FROM transactions JOIN users on transactions.creancier = users.id
+WHERE transactions.debiteur = ' . $resultat['id'] . '
+GROUP BY users.id ORDER BY users.id');
 
     echo "<tr>";
     echo "<td>";
@@ -63,9 +67,14 @@ if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])) {
     echo "<td>";
     echo "<b>SON NUMERO</b>";
     echo "</td>";
+    echo "<td>";
+    echo "<b>SOUS TOTAL</b>";
+    echo "</td>";
     echo "</tr>";
 
     $total_dettes = 0;
+
+    $current_user_id = -1;
 
     while ($donnees = $reponse->fetch()) {
         $total_dettes += $donnees['montant'];
@@ -88,6 +97,18 @@ if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])) {
         echo "<td>";
         echo $donnees['phone_number'];
         echo "</td>";
+
+
+        if ($donnees['id'] != $current_user_id) {
+            $donnees_total = $response_totals->fetch();
+            $current_user_id = $donnees_total['id'];
+            $current_user_sum = $donnees_total['somme'];
+            $current_user_count = $donnees_total['nombre'];
+            echo "<td rowspan='$current_user_count'>";
+            echo round($current_user_sum, 2, PHP_ROUND_HALF_UP) . ' €';
+            echo "</td>";
+        }
+
         echo "</tr>";
     }
 
@@ -235,6 +256,10 @@ else {
             echo "Tes dettes: <br>";
             echo "<table>";
             $reponse = $bdd->query('SELECT transactions.id as transacid, transactions.motif, transactions.date, transactions.montant, transactions.debiteur, users.id, users.surnom, users.phone_number FROM transactions JOIN users on transactions.creancier = users.id where transactions.debiteur = ' . $resultat['id'] . " ORDER BY users.id");
+            $response_totals = $bdd->query('SELECT count(transactions.Id) as nombre, sum(transactions.montant) as somme, transactions.debiteur, users.id
+FROM transactions JOIN users on transactions.creancier = users.id
+WHERE transactions.debiteur = ' . $resultat['id'] . '
+GROUP BY users.id ORDER BY users.id');
 
             echo "<tr>";
             echo "<td>";
@@ -255,9 +280,14 @@ else {
             echo "<td>";
             echo "<b>SON NUMERO</b>";
             echo "</td>";
+            echo "<td>";
+            echo "<b>SOUS TOTAL</b>";
+            echo "</td>";
             echo "</tr>";
 
             $total_dettes = 0;
+
+            $current_user_id = -1;
 
             while ($donnees = $reponse->fetch()) {
                 $total_dettes += $donnees['montant'];
@@ -280,6 +310,18 @@ else {
                 echo "<td>";
                 echo $donnees['phone_number'];
                 echo "</td>";
+
+
+                if ($donnees['id'] != $current_user_id) {
+                    $donnees_total = $response_totals->fetch();
+                    $current_user_id = $donnees_total['id'];
+                    $current_user_sum = $donnees_total['somme'];
+                    $current_user_count = $donnees_total['nombre'];
+                    echo "<td rowspan='$current_user_count'>";
+                    echo round($current_user_sum, 2, PHP_ROUND_HALF_UP) . ' €';
+                    echo "</td>";
+                }
+
                 echo "</tr>";
             }
 
