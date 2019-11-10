@@ -16,6 +16,7 @@
 <body>
 
 <?php
+session_start();
 try {
     $bdd = new PDO('mysql:host=localhost;dbname=x3_tresorerie;charset=utf8', 'x3_tresorerie_website', 'x3trezsafe');
 } catch (Exception $e) {
@@ -32,7 +33,7 @@ $bdd->exec("DELETE from transactions where id=" . $id_a_supprimer);
 
 <form>
     <br>
-    <input type="button" value="Retour" onclick="window.location.href='login.php'"/>
+    <input type="button" value="Retour" onclick="window.location.href='password_verif.php'"/>
 </form>
 
 

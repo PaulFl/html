@@ -14,6 +14,11 @@
 </head>
 <link href="minimal-table.css" rel="stylesheet" type="text/css">
 <body>
+<?php
+session_start();
+$_SESSION = array();
+session_destroy();
+?>
 <form>
     <br>
     <input type="button" value="Accueil" onclick="window.location.href='../index.html'"/>

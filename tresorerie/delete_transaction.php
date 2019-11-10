@@ -16,6 +16,7 @@
 <body>
 <p><b>Récapitulatif</b><br></p>
 <?php
+session_start();
 try {
     $bdd = new PDO('mysql:host=localhost;dbname=x3_tresorerie;charset=utf8', 'x3_tresorerie_website', 'x3trezsafe');
 } catch (Exception $e) {
@@ -45,7 +46,7 @@ echo "<form action=\"confirm_delete_transaction.php\" method=\"post\"><input typ
 ?>
 <form>
     <br>
-    <input type="button" value="Retour" onclick="window.location.href='login.php'"/>
+    <input type="button" value="Retour" onclick="window.location.href='password_verif.php'"/>
 </form>
 
 </body>
