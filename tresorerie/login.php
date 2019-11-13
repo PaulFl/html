@@ -21,7 +21,7 @@ session_destroy();
 ?>
 <form>
     <br>
-    <input type="button" value="Accueil" onclick="window.location.href='../index.html'"/>
+    <input type="button" value="Accueil" onclick="window.location.href='../index.php'"/>
 </form>
 <p>Surnom et mot de passe pour acceder à ton compte stp bb</p>
 <form action="password_verif.php" method="post">

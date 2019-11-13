@@ -80,7 +80,7 @@ echo "ENREGISTRÉ, NE PAS RAFRAICHIR LA PAGE";
 
 <form>
     <br>
-    <input type="button" value="Retour" onclick="window.location.href='../index.html'"/>
+    <input type="button" value="Retour" onclick="window.location.href='../index.php'"/>
 </form>
 
 

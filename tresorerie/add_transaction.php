@@ -16,7 +16,7 @@
 <body>
 <form>
     <br>
-    <input type="button" value="Accueil" onclick="window.location.href='../index.html'"/>
+    <input type="button" value="Accueil" onclick="window.location.href='../index.php'"/>
 </form>
 <p><b>Nouvelle dépense: </b></p>
 <form action="transaction_to_db.php" method="post">
