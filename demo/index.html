@@ -11,13 +11,22 @@
 <form action="http://buzz.fleury.io:5000" method="post">
     <p>
         Cabinet ID:
-        <input type="number" name="cabinet_id">
+        <label>
+            <input type="number" name="cabinet_id" value="0">
+        </label>
         <br><br>
         Battery slot:
-        <input type="number" name="slot">
+        <label>
+            <input type="number" name="slot" value="1">
+        </label>
         <br><br>
         <input type="submit" value="Unlock">
-
+        <br><br>
+    </p>
+</form>
+<form action="http://buzz.fleury.io:5000" method="post">
+    <p>
+        <input type="submit" value="Inventory">
     </p>
 </form>
 </body>
