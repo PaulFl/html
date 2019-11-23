@@ -32,6 +32,10 @@ if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])) {
 
     echo "<form action=\"modify_infos.php\" method=\"post\"><input type=\"submit\" value=\"Modifier mes infos - Id: " . $resultat['id'] . "\" name=\"" . 6 . "\"/></form>";
 
+    echo "<form>
+    <br>
+    <input type=\"button\" value=\"Deconnexion\" onclick=\"window.location.href='login.php'\"/>
+</form>";
     echo "<br>";
 
 

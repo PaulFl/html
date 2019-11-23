@@ -22,30 +22,24 @@ try {
 } catch (Exception $e) {
     die('Erreur : ' . $e->getMessage());
 }
-$response = $bdd->query('SELECT datetime, user_id, users.surnom as surnom_connection from connections join users on connections.user_id = users.Id order by datetime desc limit 100');
+$response = $bdd->query('select surnom, round(sum(montant),2) as dettes from users join transactions on transactions.debiteur = users.Id group by surnom order by dettes desc');
 echo "<table>";
 echo "<tr>";
 echo "<td>";
-echo "<b>Time stamp</b>";
-echo "</td>";
-echo "<td>";
-echo "<b>ID</b>";
-echo "</td>";
-echo "<td>";
 echo "<b>Surnom</b>";
+echo "</td>";
+echo "<td>";
+echo "<b>Dettes</b>";
 echo "</td>";
 echo "</tr>";
 
 while ($donnees = $response->fetch()) {
     echo "<tr>";
     echo "<td>";
-    echo $donnees['datetime'];
+    echo $donnees['surnom'];
     echo "</td>";
     echo "<td>";
-    echo $donnees['user_id'];
-    echo "</td>";
-    echo "<td>";
-    echo $donnees['surnom_connection'];
+    echo $donnees['dettes'].'€';
     echo "</td>";
     echo "</tr>";
 }
