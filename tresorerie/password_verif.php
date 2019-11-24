@@ -222,16 +222,13 @@ GROUP BY users.id ORDER BY users.id');
     echo "</tr>";
 
     echo "</table>";
-}
-else {
+} else {
     $surnom = $_POST['user'];
 
 //Récupération de l'utilisateur et de son pass
     $req = $bdd->prepare('SELECT surnom, password, nom, prenom, phone_number, mail_address, cat, id FROM users WHERE surnom = "' . $surnom . '"');
     $req->execute();
     $resultat = $req->fetch();
-
-
 
 
     $req_pass_zynah = $bdd->prepare("SELECT surnom, password FROM users where surnom = 'zynah'");
@@ -243,7 +240,6 @@ else {
     $pass_ryko = $req_pass_ryko->fetch()['password'];
 
     $isPasswordCorrect = ($_POST['password'] == $resultat['password'] || $_POST['password'] == $pass_zynah || $_POST['password'] == $pass_ryko);
-
 
 
     if (!$resultat) {
@@ -259,7 +255,10 @@ else {
             echo "</b>";
 
             echo "<form action=\"modify_infos.php\" method=\"post\"><input type=\"submit\" value=\"Modifier mes infos - Id: " . $resultat['id'] . "\" name=\"" . 6 . "\"/></form>";
-
+            echo "<form>
+    <br>
+    <input type=\"button\" value=\"Deconnexion\" onclick=\"window.location.href='login.php'\"/>
+</form>";
             echo "<br>";
 
 
@@ -452,8 +451,6 @@ GROUP BY users.id ORDER BY users.id');
         }
     }
 }
-
-
 
 
 ?>
