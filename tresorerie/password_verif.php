@@ -47,7 +47,7 @@ if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])) {
 
     echo "Tes dettes: <br>";
     echo "<table>";
-    $reponse = $bdd->query('SELECT transactions.id as transacid, transactions.motif, transactions.date, transactions.montant, transactions.debiteur, users.id, users.surnom, users.phone_number FROM transactions JOIN users on transactions.creancier = users.id where transactions.debiteur = ' . $resultat['id'] . " ORDER BY users.id");
+    $reponse = $bdd->query('SELECT transactions.id as transacid, transactions.motif, transactions.date, transactions.montant, transactions.debiteur, users.id, users.surnom, users.prenom, users.nom, users.phone_number FROM transactions JOIN users on transactions.creancier = users.id where transactions.debiteur = ' . $resultat['id'] . " ORDER BY users.id");
     $response_totals = $bdd->query('SELECT count(transactions.Id) as nombre, sum(transactions.montant) as somme, transactions.debiteur, users.id
 FROM transactions JOIN users on transactions.creancier = users.id
 WHERE transactions.debiteur = ' . $resultat['id'] . '
@@ -97,7 +97,7 @@ GROUP BY users.id ORDER BY users.id');
         echo $donnees['montant'] . "€";
         echo "</td>";
         echo "<td>";
-        echo $donnees['surnom'];
+        echo $donnees['surnom'] . "<br>(" . $donnees['prenom'] . " " . $donnees['nom'] . ")";
         echo "</td>";
         echo "<td>";
         echo $donnees['phone_number'];
@@ -142,7 +142,7 @@ GROUP BY users.id ORDER BY users.id');
 
     echo "Tes créances: <br>";
     echo "<table>";
-    $reponse = $bdd->query('SELECT transactions.id as transacid, transactions.motif, transactions.date, transactions.montant, transactions.creancier, transactions.debiteur, users.id, users.surnom, users.phone_number FROM transactions JOIN users on transactions.debiteur = users.id where transactions.creancier = ' . $resultat['id']);
+    $reponse = $bdd->query('SELECT transactions.id as transacid, transactions.motif, transactions.date, transactions.montant, transactions.creancier, transactions.debiteur, users.id, users.surnom, users.nom, users.prenom, users.phone_number FROM transactions JOIN users on transactions.debiteur = users.id where transactions.creancier = ' . $resultat['id']);
 
     echo "<tr>";
     echo "<td>";
@@ -186,7 +186,7 @@ GROUP BY users.id ORDER BY users.id');
         echo $donnees['montant'] . "€";
         echo "</td>";
         echo "<td>";
-        echo $donnees['surnom'];
+        echo $donnees['surnom'] . "<br>(" . $donnees['prenom'] . " " . $donnees['nom'] . ")";
         echo "</td>";
         echo "<td>";
         echo $donnees['phone_number'];
@@ -270,7 +270,7 @@ GROUP BY users.id ORDER BY users.id');
 
             echo "Tes dettes: <br>";
             echo "<table>";
-            $reponse = $bdd->query('SELECT transactions.id as transacid, transactions.motif, transactions.date, transactions.montant, transactions.debiteur, users.id, users.surnom, users.phone_number FROM transactions JOIN users on transactions.creancier = users.id where transactions.debiteur = ' . $resultat['id'] . " ORDER BY users.id");
+            $reponse = $bdd->query('SELECT transactions.id as transacid, transactions.motif, transactions.date, transactions.montant, transactions.debiteur, users.id, users.surnom, users.prenom, users.nom, users.phone_number FROM transactions JOIN users on transactions.creancier = users.id where transactions.debiteur = ' . $resultat['id'] . " ORDER BY users.id");
             $response_totals = $bdd->query('SELECT count(transactions.Id) as nombre, sum(transactions.montant) as somme, transactions.debiteur, users.id
 FROM transactions JOIN users on transactions.creancier = users.id
 WHERE transactions.debiteur = ' . $resultat['id'] . '
@@ -320,7 +320,7 @@ GROUP BY users.id ORDER BY users.id');
                 echo $donnees['montant'] . "€";
                 echo "</td>";
                 echo "<td>";
-                echo $donnees['surnom'];
+                echo $donnees['surnom'] . "<br>(" . $donnees['prenom'] . " " . $donnees['nom'] . ")";
                 echo "</td>";
                 echo "<td>";
                 echo $donnees['phone_number'];
@@ -365,7 +365,7 @@ GROUP BY users.id ORDER BY users.id');
 
             echo "Tes créances: <br>";
             echo "<table>";
-            $reponse = $bdd->query('SELECT transactions.id as transacid, transactions.motif, transactions.date, transactions.montant, transactions.creancier, transactions.debiteur, users.id, users.surnom, users.phone_number FROM transactions JOIN users on transactions.debiteur = users.id where transactions.creancier = ' . $resultat['id']);
+            $reponse = $bdd->query('SELECT transactions.id as transacid, transactions.motif, transactions.date, transactions.montant, transactions.creancier, transactions.debiteur, users.id, users.surnom, users.nom, users.prenom, users.phone_number FROM transactions JOIN users on transactions.debiteur = users.id where transactions.creancier = ' . $resultat['id']);
 
             echo "<tr>";
             echo "<td>";
@@ -409,7 +409,7 @@ GROUP BY users.id ORDER BY users.id');
                 echo $donnees['montant'] . "€";
                 echo "</td>";
                 echo "<td>";
-                echo $donnees['surnom'];
+                echo $donnees['surnom'] . "<br>(" . $donnees['prenom'] . " " . $donnees['nom'] . ")";
                 echo "</td>";
                 echo "<td>";
                 echo $donnees['phone_number'];
