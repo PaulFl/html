@@ -65,28 +65,28 @@
             $reponse = $bdd->query("SELECT surnom, cat from users WHERE cat='0A' order by surnom");
             while ($donnees = $reponse->fetch()) {
                 echo "<input type='checkbox' name='" . $donnees['surnom'] . "' id='" . $donnees['surnom'] . "'/> <label for='" . $donnees['surnom'] . "'>" . $donnees['surnom'] . "  </label>";
-                echo "<input type=\"number\" step=\"1\" name=\"coef_" . $donnees['surnom'] . "\" value='1' placeholder='Coeff' style=\"width: 3em;\"/>";
+                echo "<input type=\"number\" step=\"0.1\" name=\"coef_" . $donnees['surnom'] . "\" value='1' placeholder='Coeff' style=\"width: 3em;\"/>";
                 echo "&nbsp; &nbsp;";
             }
             echo "<br><b>2As:  </b><br>";
             $reponse = $bdd->query("SELECT surnom, cat from users WHERE cat='2A' order by surnom");
             while ($donnees = $reponse->fetch()) {
                 echo "<input type='checkbox' name='" . $donnees['surnom'] . "' id='" . $donnees['surnom'] . "'/> <label for='" . $donnees['surnom'] . "'>" . $donnees['surnom'] . "  </label>";
-                echo "<input type=\"number\" step=\"1\" name=\"coef_" . $donnees['surnom'] . "\" value='1' placeholder='Coeff' style=\"width: 3em;\"/>";
+                echo "<input type=\"number\" step=\"0.1\" name=\"coef_" . $donnees['surnom'] . "\" value='1' placeholder='Coeff' style=\"width: 3em;\"/>";
                 echo "&nbsp; &nbsp;";
             }
             echo "<br><b>AFFs:  </b> <br>";
             $reponse = $bdd->query("SELECT surnom, cat from users WHERE cat='AFF' order by surnom");
             while ($donnees = $reponse->fetch()) {
                 echo "<input type='checkbox' name='" . $donnees['surnom'] . "' id='" . $donnees['surnom'] . "'/> <label for='" . $donnees['surnom'] . "'>" . $donnees['surnom'] . "  </label>";
-                echo "<input type=\"number\" step=\"1\" name=\"coef_" . $donnees['surnom'] . "\" value='1' placeholder='Coeff' style=\"width: 3em;\"/>";
+                echo "<input type=\"number\" step=\"0.1\" name=\"coef_" . $donnees['surnom'] . "\" value='1' placeholder='Coeff' style=\"width: 3em;\"/>";
                 echo "&nbsp; &nbsp;";
             }
             echo "<br><b>nAs: </b>  <br>";
             $reponse = $bdd->query("SELECT surnom, cat from users WHERE cat='nA' order by surnom");
             while ($donnees = $reponse->fetch()) {
                 echo "<input type='checkbox' name='" . $donnees['surnom'] . "' id='" . $donnees['surnom'] . "'/> <label for='" . $donnees['surnom'] . "'>" . $donnees['surnom'] . "  </label>";
-                echo "<input type=\"number\" step=\"1\" name=\"coef_" . $donnees['surnom'] . "\" value='1' placeholder='Coeff' style=\"width: 3em;\"/>";
+                echo "<input type=\"number\" step=\"0.1\" name=\"coef_" . $donnees['surnom'] . "\" value='1' placeholder='Coeff' style=\"width: 3em;\"/>";
                 echo "&nbsp; &nbsp;";
             }
             ?>
