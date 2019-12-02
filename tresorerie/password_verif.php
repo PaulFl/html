@@ -110,7 +110,7 @@ GROUP BY users.id ORDER BY users.id');
             $current_user_sum = $donnees_total['somme'];
             $current_user_count = $donnees_total['nombre'];
             echo "<td rowspan='$current_user_count'>";
-            echo round($current_user_sum, 2, PHP_ROUND_HALF_UP) . ' €';
+            echo round($current_user_sum, 2, PHP_ROUND_HALF_UP) . '€';
             echo "</td>";
         }
 
@@ -333,7 +333,7 @@ GROUP BY users.id ORDER BY users.id');
                     $current_user_sum = $donnees_total['somme'];
                     $current_user_count = $donnees_total['nombre'];
                     echo "<td rowspan='$current_user_count'>";
-                    echo round($current_user_sum, 2, PHP_ROUND_HALF_UP) . ' €';
+                    echo round($current_user_sum, 2, PHP_ROUND_HALF_UP) . '€';
                     echo "</td>";
                 }
 
