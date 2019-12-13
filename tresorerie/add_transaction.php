@@ -66,7 +66,7 @@
             while ($donnees = $reponse->fetch()) {
                 echo "<div class=\"item\">";
                 echo "<input type='checkbox' name='" . $donnees['surnom'] . "' id='" . $donnees['surnom'] . "'/> <label for='" . $donnees['surnom'] . "'>" . $donnees['surnom'] . "  </label>";
-                echo "<input type=\"number\" step=\"0.1\" name=\"coef_" . $donnees['surnom'] . "\" value='1' placeholder='Coeff' style=\"width: 3em;\"/>";
+                echo "<input type=\"number\" step=\"0.01\" name=\"coef_" . $donnees['surnom'] . "\" value='1' placeholder='Coeff' style=\"width: 3em;\"/>";
                 echo "&nbsp; &nbsp;";
                 echo "</div>";
             }
@@ -75,7 +75,7 @@
             while ($donnees = $reponse->fetch()) {
                 echo "<div class=\"item\">";
                 echo "<input type='checkbox' name='" . $donnees['surnom'] . "' id='" . $donnees['surnom'] . "'/> <label for='" . $donnees['surnom'] . "'>" . $donnees['surnom'] . "  </label>";
-                echo "<input type=\"number\" step=\"0.1\" name=\"coef_" . $donnees['surnom'] . "\" value='1' placeholder='Coeff' style=\"width: 3em;\"/>";
+                echo "<input type=\"number\" step=\"0.01\" name=\"coef_" . $donnees['surnom'] . "\" value='1' placeholder='Coeff' style=\"width: 3em;\"/>";
                 echo "&nbsp; &nbsp;";
                 echo "</div>";
             }
@@ -84,7 +84,7 @@
             while ($donnees = $reponse->fetch()) {
                 echo "<div class=\"item\">";
                 echo "<input type='checkbox' name='" . $donnees['surnom'] . "' id='" . $donnees['surnom'] . "'/> <label for='" . $donnees['surnom'] . "'>" . $donnees['surnom'] . "  </label>";
-                echo "<input type=\"number\" step=\"0.1\" name=\"coef_" . $donnees['surnom'] . "\" value='1' placeholder='Coeff' style=\"width: 3em;\"/>";
+                echo "<input type=\"number\" step=\"0.01\" name=\"coef_" . $donnees['surnom'] . "\" value='1' placeholder='Coeff' style=\"width: 3em;\"/>";
                 echo "&nbsp; &nbsp;";
                 echo "</div>";
             }
@@ -93,7 +93,7 @@
             while ($donnees = $reponse->fetch()) {
                 echo "<div class=\"item\">";
                 echo "<input type='checkbox' name='" . $donnees['surnom'] . "' id='" . $donnees['surnom'] . "'/> <label for='" . $donnees['surnom'] . "'>" . $donnees['surnom'] . "  </label>";
-                echo "<input type=\"number\" step=\"0.1\" name=\"coef_" . $donnees['surnom'] . "\" value='1' placeholder='Coeff' style=\"width: 3em;\"/>";
+                echo "<input type=\"number\" step=\"0.01\" name=\"coef_" . $donnees['surnom'] . "\" value='1' placeholder='Coeff' style=\"width: 3em;\"/>";
                 echo "&nbsp; &nbsp;";
                 echo "</div>";
             }
