@@ -26,17 +26,20 @@ session_destroy();
     <input type="button" value="Accueil" onclick="window.location.href='../index.php'"/>
 </form>
 <p>Surnom et mot de passe pour acceder à ton compte stp bb</p>
+
 <form action="password_verif.php" method="post">
-    <p>
-        Surnom:
-        <input type="user" name="user"/>
+    <table>
+        <tr>
+            <td>
+        <label><span>Surnom:  </span><input type="user" name="user"></label>
         <br>
-        MDP:
-        <input type="password" name="password"/>
+        <label><span>MDP:  </span><input type="password" name="password"></label>
         <br>
         <br>
         <input type="submit" value="Ça part"/>
-    </p>
+            </td>
+        </tr>
+    </table>
 </form>
 </body>
 </html>
