@@ -31,9 +31,9 @@ session_destroy();
     <table>
         <tr>
             <td>
-        <label><span>Surnom:  </span><input type="user" name="user"></label>
-        <br>
-        <label><span>MDP:  </span><input type="password" name="password"></label>
+                <label><span><b>Surnom:  </b></span><input type="user" name="user"></label>
+        <br><br>
+                <label><span><b>MDP:  </b></span><input type="password" name="password"></label>
         <br>
         <br>
         <input type="submit" value="Ça part"/>

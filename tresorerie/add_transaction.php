@@ -22,15 +22,15 @@
 <p><b>Nouvelle dépense: </b></p>
 <form action="transaction_to_db.php" method="post">
     <p>
-        <b>Date:</b>
-        <input type="date" name="date" value="<?php date_default_timezone_set('Europe/Paris'); echo date('Y-m-d'); ?>"/>
+        <label><span><b>Date: </b></span><input type="date" name="date"
+                                                value="<?php date_default_timezone_set('Europe/Paris');
+                                                echo date('Y-m-d'); ?>"/></label>
         <br>
-        <b>Motif:</b>
-        <input type="text" name="title"/>
+        <label><span><b>Motif: </b></span><input type="text" name="title"/></label>
         <br>
-        <b>Montant:</b>
-        <input type="number" step="0.01" name="montant"/>
+        <label><span><b>Montant: </b></span><input type="number" step="0.01" name="montant"/></label>
         <br><br>
+
         <b>Qui a payé:</b>
         <select name="creancier">
             <?php
