@@ -62,14 +62,15 @@ if ($handle = opendir($path)) {
     }
     closedir($handle);
     $today = getdate();
-    srand($today['mday'] + $today['mon']);
+    $day = $today['mon']*31 + $today['mday'];
+    //srand($today['mday'] + $today['mon']);
 
-    $r = rand(0, $i - 1);
+    //$r = rand(0, $i - 1);
+    $r = $day % $i;
 
     echo "<a href=\"tresorerie/login.php\"><img src=\"x3_photos/{$imgs[$r]}\" style=\"max-width:100%;\" alt=\"Etage roi\"/>";
 
 }
 ?>
-<!--<a href="tresorerie/login.php"><img src="zahfy.jpg" style="max-width:100%;" alt="Etage roi"/>-->
 </body>
 </html>
