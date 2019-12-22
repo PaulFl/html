@@ -15,6 +15,11 @@
 </head>
 <link href="minimal-table.css" rel="stylesheet" type="text/css">
 <body>
+<form>
+    <br>
+    <input type="button" value="Retour" onclick="window.location.href='../index.php'"/>
+</form>
+<br>
 <?php
 session_start();
 try {
