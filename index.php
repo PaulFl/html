@@ -25,7 +25,7 @@
             <a href="phpmyadmin">Données trésorerie</a><br>
             <a href="tresorerie/worst_debts.php">Dettes</a><br>
             <a href="tresorerie/connections.php">Stats</a>
-            <a href="tresorerie/activity_log.php">Logsgaa</a>
+            <a href="tresorerie/activity_log.php">Logs</a>
         </td>
     </tr>
     <tr>
