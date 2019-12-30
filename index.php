@@ -19,8 +19,8 @@
 <div id="titleAndArray">
 <table>
     <tr>
-        <td style="line-height: 1.6;">
-            <b>Espace de Zynahpapa: </b><br>
+        <td style="line-height: 1.8;">
+            <b style="font-size: 1.1em">Espace de Zynahpapa: </b><br>
             <a href="tresorerie/add_transaction.php">Nouvelle dépenses</a><br>
             <a href="phpmyadmin">Données trésorerie</a><br>
             <a href="tresorerie/worst_debts.php">Dettes</a><br>
