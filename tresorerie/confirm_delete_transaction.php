@@ -30,6 +30,9 @@ echo ") supprimée";
 
 $bdd->exec("DELETE from transactions where id=" . $id_a_supprimer);
 
+date_default_timezone_set('Europe/Paris');
+$bdd->exec("INSERT INTO logs (datetime, user_id, transaction_id, action) values ('" . date('Y-m-d H:i:s') . "', " . $_SESSION['id'] . ", " . $id_a_supprimer . ", 'delete')");
+
 ?>
 
 <form>

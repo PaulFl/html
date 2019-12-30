@@ -17,6 +17,7 @@
 <body>
 <p>Récapitulatif<br></p>
 <?php
+date_default_timezone_set('Europe/Paris');
 try {
     $bdd = new PDO('mysql:host=localhost;dbname=x3_tresorerie;charset=utf8', 'x3_tresorerie_website', 'x3trezsafe');
 } catch (Exception $e) {
@@ -74,10 +75,17 @@ while ($donnees = $reponse->fetch()) {
         $prix_a_payer = $prix_personne * $_POST["coef_" . $donnees['surnom']];
         $prix_a_payer = round($prix_a_payer, 2, PHP_ROUND_HALF_UP);
         $bdd->exec("INSERT INTO transactions (creancier, debiteur, montant, motif, date) values (" . $creancier . ", " . $donnees['id'] . ', ' . $prix_a_payer . ", '" . $_POST['title'] . "', '" . $_POST['date'] .  "')");
+
+        $response = $bdd->query('Select transactions.Id from transactions order by  transactions.Id desc limit 1');
+        $last_transac = $response->fetch();
+        $bdd->exec("INSERT INTO logs (datetime, user_id, transaction_id, action) values ('" . date('Y-m-d H:i:s') . "', " . 0 . ", " . $last_transac['Id'] . ", 'add')");
+
     }
 }
 echo "<br>";
 echo "ENREGISTRÉ, NE PAS RAFRAICHIR LA PAGE";
+
+
 ?>
 
 <form>
