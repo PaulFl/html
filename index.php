@@ -16,15 +16,14 @@
 <link href="tresorerie/minimal-table.css" rel="stylesheet" type="text/css">
 
 <body>
-<p>
-    <b>STR</b><br/><br>
+<div id="titleAndArray">
 <table>
     <tr>
-        <td>
-            <b>Espace de Zynahpapa: </b><br><br>
-            <a href="tresorerie/add_transaction.php">Nouvelle dépenses</a><br><br>
-            <a href="phpmyadmin">Données trésorerie</a><br><br>
-            <a href="tresorerie/worst_debts.php">Dettes</a><br><br>
+        <td style="line-height: 1.6;">
+            <b>Espace de Zynahpapa: </b><br>
+            <a href="tresorerie/add_transaction.php">Nouvelle dépenses</a><br>
+            <a href="phpmyadmin">Données trésorerie</a><br>
+            <a href="tresorerie/worst_debts.php">Dettes</a><br>
             <a href="tresorerie/connections.php">Stats</a>
         </td>
     </tr>
@@ -46,8 +45,10 @@
         </td>
     </tr>
 </table>
-<br><br>
-<b> Cliques sur la photo pour parler business...</b> <br><br>
+</div>
+<br>
+<div id="imgAndCaption">
+    <b> Cliques sur la photo pour parler business...</b> <br>
 <?php
 $i = 0;
 $path = "x3_photos";
@@ -68,9 +69,10 @@ if ($handle = opendir($path)) {
     //$r = rand(0, $i - 1);
     $r = $day % $i;
 
-    echo "<a href=\"tresorerie/login.php\"><img src=\"x3_photos/{$imgs[$r]}\" style=\"max-width:100%;\" alt=\"Etage roi\"/>";
+    echo "<a href=\"tresorerie/login.php\"><img src=\"x3_photos/{$imgs[$r]}\" alt=\"Etage roi\"/>";
 
 }
 ?>
+</div>
 </body>
 </html>
