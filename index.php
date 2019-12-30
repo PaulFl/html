@@ -35,9 +35,9 @@
             } catch (Exception $e) {
                 die('Erreur : ' . $e->getMessage());
             }
-            $resultat = $bdd->query('SELECT COUNT(id) as qty from transactions');
+            $resultat = $bdd->query('SELECT COUNT(id) as qty from transactions where active=1');
             $transactions_qty = $resultat->fetch()['qty'];
-            $resultat = $bdd->query('SELECT SUM(montant) as somme from transactions');
+            $resultat = $bdd->query('SELECT SUM(montant) as somme from transactions where active=1');
             $transactions_sum = $resultat->fetch()['somme'];
             $transactions_sum = round($transactions_sum, 2);
             echo $transactions_qty . ' dettes pour ' . $transactions_sum . '€';

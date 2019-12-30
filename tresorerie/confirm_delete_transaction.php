@@ -28,7 +28,9 @@ $id_a_supprimer = intval(substr($_POST[6], 29));
 echo $id_a_supprimer;
 echo ") supprimée";
 
-$bdd->exec("DELETE from transactions where id=" . $id_a_supprimer);
+
+$bdd->exec('UPDATE transactions set active = 0 where Id = ' . $id_a_supprimer);
+//$bdd->exec("DELETE from transactions where id=" . $id_a_supprimer);
 
 date_default_timezone_set('Europe/Paris');
 $bdd->exec("INSERT INTO logs (datetime, user_id, transaction_id, action) values ('" . date('Y-m-d H:i:s') . "', " . $_SESSION['id'] . ", " . $id_a_supprimer . ", 'delete')");
