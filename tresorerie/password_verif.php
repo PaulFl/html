@@ -192,7 +192,7 @@ GROUP BY users.id ORDER BY users.id');
         echo $donnees['phone_number'];
         echo "</td>";
         echo "<td>";
-        echo "<form action=\"delete_transaction.php\" method=\"post\"><input type=\"submit\" value=\"Payé ! Id: " . $donnees['transacid'] . "\" name=\"" . 6 . "\"/></form>";
+        echo "<form action=\"delete_transaction.php\" method=\"post\"><input type='hidden' id='transacid' name='transacid' value='" . $donnees['transacid'] . "'/><input type=\"submit\" value=\"Payé !\" name=\"" . 6 . "\"/></form>";
         echo "</td>";
         echo "</tr>";
     }
@@ -415,7 +415,7 @@ GROUP BY users.id ORDER BY users.id');
                 echo $donnees['phone_number'];
                 echo "</td>";
                 echo "<td>";
-                echo "<form action=\"delete_transaction.php\" method=\"post\"><input type=\"submit\" value=\"Payé ! Id: " . $donnees['transacid'] . "\" name=\"" . 6 . "\"/></form>";
+                echo "<form action=\"delete_transaction.php\" method=\"post\"><input type='hidden' id='transacid' name='transacid' value='" . $donnees['transacid'] . "'/><input type=\"submit\" value=\"Payé !\" name=\"" . 6 . "\"/></form>";
                 echo "</td>";
                 echo "</tr>";
             }

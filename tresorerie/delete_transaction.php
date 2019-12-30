@@ -23,7 +23,7 @@ try {
 } catch (Exception $e) {
     die('Erreur : ' . $e->getMessage());
 }
-$id_a_supprimer = intval(substr($_POST[6], 11));
+$id_a_supprimer = intval($_POST['transacid']);
 echo "<b>Id de la transaction: </b>";
 echo $id_a_supprimer;
 
