@@ -54,7 +54,7 @@ label span
     }
 
     td, th {
-        border: 0.5px solid rgb(190,190,190);
+        border: 1px solid rgb(190,190,190);
         padding: 10px 5px;
     }
 
