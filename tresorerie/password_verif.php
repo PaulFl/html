@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trésorerie X3 - Bienvenue BG !</title>
 </head>
-<link href="minimal-table.css" rel="stylesheet" type="text/css">
+<link href="minimal-table-responsive.css" rel="stylesheet" type="text/css">
 <body>
 <?php
 session_start();
@@ -64,7 +64,7 @@ GROUP BY users.id ORDER BY users.id');
     echo "<b>MOTIF</b>";
     echo "</td>";
     echo "<td>";
-    echo "<b>MONTANT</b>";
+    echo "<b>€</b>";
     echo "</td>";
     echo "<td>";
     echo "<b>CREANCIER</b>";
@@ -119,7 +119,7 @@ GROUP BY users.id ORDER BY users.id');
 
     echo "<tr>";
     echo "<td>";
-    echo "<b>TOTAL</b>";
+    echo "<b>TOT</b>";
     echo "</td>";
     echo "<td>";
     echo "<b> </b>";
@@ -155,7 +155,7 @@ GROUP BY users.id ORDER BY users.id');
     echo "<b>MOTIF</b>";
     echo "</td>";
     echo "<td>";
-    echo "<b>MONTANT</b>";
+    echo "<b>€</b>";
     echo "</td>";
     echo "<td>";
     echo "<b>DEBITEUR</b>";
@@ -199,7 +199,7 @@ GROUP BY users.id ORDER BY users.id');
 
     echo "<tr>";
     echo "<td>";
-    echo "<b>TOTAL</b>";
+    echo "<b>TOT</b>";
     echo "</td>";
     echo "<td>";
     echo "<b> </b>";
@@ -287,7 +287,7 @@ GROUP BY users.id ORDER BY users.id');
             echo "<b>MOTIF</b>";
             echo "</td>";
             echo "<td>";
-            echo "<b>MONTANT</b>";
+            echo "<b>€</b>";
             echo "</td>";
             echo "<td>";
             echo "<b>CREANCIER</b>";
@@ -342,7 +342,7 @@ GROUP BY users.id ORDER BY users.id');
 
             echo "<tr>";
             echo "<td>";
-            echo "<b>TOTAL</b>";
+            echo "<b>TOT</b>";
             echo "</td>";
             echo "<td>";
             echo "<b> </b>";
@@ -378,7 +378,7 @@ GROUP BY users.id ORDER BY users.id');
             echo "<b>MOTIF</b>";
             echo "</td>";
             echo "<td>";
-            echo "<b>MONTANT</b>";
+            echo "<b>€</b>";
             echo "</td>";
             echo "<td>";
             echo "<b>DEBITEUR</b>";
@@ -422,7 +422,7 @@ GROUP BY users.id ORDER BY users.id');
 
             echo "<tr>";
             echo "<td>";
-            echo "<b>TOTAL</b>";
+            echo "<b>TOT</b>";
             echo "</td>";
             echo "<td>";
             echo "<b> </b>";
