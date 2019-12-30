@@ -11,7 +11,7 @@
     <meta name="theme-color" content="#ffffff">
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trésorerie X3 - Connections</title>
+    <title>Trésorerie X3 - Activity log</title>
 </head>
 <link href="minimal-table.css" rel="stylesheet" type="text/css">
 <body>
@@ -27,17 +27,20 @@ try {
 } catch (Exception $e) {
     die('Erreur : ' . $e->getMessage());
 }
-$response = $bdd->query('SELECT datetime, user_id, users.surnom as surnom_connection from connections join users on connections.user_id = users.Id order by datetime desc limit 100');
+$response = $bdd->query('SELECT datetime, user_id, transaction_id, action, users.surnom as surnom_connection from logs join users on logs.user_id = users.Id order by datetime desc limit 100');
 echo "<table>";
 echo "<tr>";
 echo "<td>";
 echo "<b>Time stamp</b>";
 echo "</td>";
 echo "<td>";
-echo "<b>ID</b>";
+echo "<b>Surnom</b>";
 echo "</td>";
 echo "<td>";
-echo "<b>Surnom</b>";
+echo "<b>TransacId</b>";
+echo "</td>";
+echo "<td>";
+echo "<b>Action</b>";
 echo "</td>";
 echo "</tr>";
 
@@ -47,10 +50,13 @@ while ($donnees = $response->fetch()) {
     echo $donnees['datetime'];
     echo "</td>";
     echo "<td>";
-    echo $donnees['user_id'];
+    echo $donnees['surnom_connection'];
     echo "</td>";
     echo "<td>";
-    echo $donnees['surnom_connection'];
+    echo $donnees['transaction_id'];
+    echo "</td>";
+    echo "<td>";
+    echo $donnees['action'];
     echo "</td>";
     echo "</tr>";
 }
