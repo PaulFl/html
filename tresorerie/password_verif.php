@@ -13,7 +13,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trésorerie X3 - Bienvenue BG !</title>
 </head>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="js/copy_to_clipboard.js"></script>
 <link href="minimal-table-responsive.css" rel="stylesheet" type="text/css">
 <body>
@@ -192,9 +191,12 @@ GROUP BY users.id ORDER BY users.id');
         echo "<td>";
         echo $donnees['surnom'] . "<br>(" . $donnees['prenom'] . " " . $donnees['nom'] . ")";
         echo "</td>";
-        echo "<td>";
-        echo $donnees['phone_number'];
         echo "</td>";
+        $transacid = $donnees['transacid'];
+        $phone_number = $donnees['phone_number'];
+        echo "<td> <p id='$transacid' onclick='copyText(this)'>";
+        echo $donnees['phone_number'];
+        echo "</p></td>";
         echo "<td>";
         echo "<form action=\"delete_transaction.php\" method=\"post\"><input type='hidden' id='transacid' name='transacid' value='" . $donnees['transacid'] . "'/><input type=\"submit\" value=\"Payé !\" name=\"" . 6 . "\"/></form>";
         echo "</td>";
@@ -326,9 +328,12 @@ GROUP BY users.id ORDER BY users.id');
                 echo "<td>";
                 echo $donnees['surnom'] . "<br>(" . $donnees['prenom'] . " " . $donnees['nom'] . ")";
                 echo "</td>";
-                echo "<td>";
-                echo $donnees['phone_number'];
                 echo "</td>";
+                $transacid = $donnees['transacid'];
+                $phone_number = $donnees['phone_number'];
+                echo "<td> <p id='$transacid' onclick='copyText(this)'>";
+                echo $donnees['phone_number'];
+                echo "</p></td>";
 
 
                 if ($donnees['id'] != $current_user_id) {
@@ -415,9 +420,12 @@ GROUP BY users.id ORDER BY users.id');
                 echo "<td>";
                 echo $donnees['surnom'] . "<br>(" . $donnees['prenom'] . " " . $donnees['nom'] . ")";
                 echo "</td>";
-                echo "<td>";
-                echo $donnees['phone_number'];
                 echo "</td>";
+                $transacid = $donnees['transacid'];
+                $phone_number = $donnees['phone_number'];
+                echo "<td> <p id='$transacid' onclick='copyText(this)'>";
+                echo $donnees['phone_number'];
+                echo "</p></td>";
                 echo "<td>";
                 echo "<form action=\"delete_transaction.php\" method=\"post\"><input type='hidden' id='transacid' name='transacid' value='" . $donnees['transacid'] . "'/><input type=\"submit\" value=\"Payé !\" name=\"" . 6 . "\"/></form>";
                 echo "</td>";
