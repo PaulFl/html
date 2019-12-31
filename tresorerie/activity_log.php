@@ -53,7 +53,8 @@ while ($donnees = $response->fetch()) {
     echo $donnees['surnom_connection'];
     echo "</td>";
     echo "<td>";
-    echo $donnees['transaction_id'];
+    $transacid = $donnees['transaction_id'];
+    echo "<form action=\"transaction_recap.php\" method=\"post\"><input type='hidden' name='transacid' value='$transacid'><input type=\"submit\" value=$transacid></form>";
     echo "</td>";
     echo "<td>";
     echo $donnees['action'];
