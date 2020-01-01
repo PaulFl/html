@@ -27,7 +27,7 @@ try {
 } catch (Exception $e) {
     die('Erreur : ' . $e->getMessage());
 }
-$response = $bdd->query('select surnom, round(sum(montant),2) as dettes from users join transactions on transactions.debiteur = users.Id group by surnom order by dettes desc');
+$response = $bdd->query('select surnom, round(sum(montant),2) as dettes from users join transactions on transactions.debiteur = users.Id where transactions.active=1 group by surnom order by dettes desc');
 echo "<table>";
 echo "<tr>";
 echo "<td>";
