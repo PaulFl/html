@@ -19,7 +19,8 @@
     <br>
     <input type="button" value="Retour" onclick="window.location.href='../index.php'"/>
 </form>
-<br>
+
+<h3 style="margin-left: 30px">Créances</h3>
 <?php
 session_start();
 try {
@@ -28,8 +29,8 @@ try {
     die('Erreur : ' . $e->getMessage());
 }
 $response = $bdd->query('select surnom, round(sum(montant),2) as creances from users join transactions on transactions.creancier = users.Id where transactions.active=1 group by surnom order by creances desc');
-echo "<table style='float: left; margin-right: 10px;'>";
-echo '<tr><td><b>Actif</b></td></tr>';
+echo "<table style='float: left; margin-left: 30px; margin-right: 30px;'>";
+echo '<tr><td><b>Actives</b></td></tr>';
 echo "<tr>";
 echo "<td>";
 echo "<b>Surnom</b>";
@@ -53,7 +54,7 @@ echo '</table>';
 
 
 echo "<table style='float: left;'>";
-echo '<tr><td><b>Tout</b></td></tr>';
+echo '<tr><td><b>Toutes</b></td></tr>';
 echo "<tr>";
 echo "<td>";
 echo "<b>Surnom</b>";
