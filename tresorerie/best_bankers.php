@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trésorerie X3 - Banquiers</title>
 </head>
-<link href="minimal-table.css" rel="stylesheet" type="text/css">
+<link href="minimal-table-responsive.css" rel="stylesheet" type="text/css">
 <body>
 <form>
     <br>
@@ -28,8 +28,8 @@ try {
     die('Erreur : ' . $e->getMessage());
 }
 $response = $bdd->query('select surnom, round(sum(montant),2) as creances from users join transactions on transactions.creancier = users.Id where transactions.active=1 group by surnom order by creances desc');
-echo "<table style='float: left; margin-right: 20px;'>";
-echo '<tr><td><b>Créances actives</b></td></tr>';
+echo "<table style='float: left; margin-right: 10px;'>";
+echo '<tr><td><b>Actif</b></td></tr>';
 echo "<tr>";
 echo "<td>";
 echo "<b>Surnom</b>";
@@ -53,7 +53,7 @@ echo '</table>';
 
 
 echo "<table style='float: left;'>";
-echo '<tr><td><b>Toutes créances</b></td></tr>';
+echo '<tr><td><b>Tout</b></td></tr>';
 echo "<tr>";
 echo "<td>";
 echo "<b>Surnom</b>";
