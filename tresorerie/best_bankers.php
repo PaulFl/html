@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trésorerie X3 - Banquiers</title>
 </head>
-<link href="minimal-table-responsive.css" rel="stylesheet" type="text/css">
+<link href="style-bankers-responsive.css" rel="stylesheet" type="text/css">
 <body>
 <form>
     <br>
@@ -29,14 +29,14 @@ try {
     die('Erreur : ' . $e->getMessage());
 }
 $response = $bdd->query('select surnom, round(sum(montant),2) as creances from users join transactions on transactions.creancier = users.Id where transactions.active=1 group by surnom order by creances desc');
-echo "<table style='float: left; margin-left: 30px; margin-right: 30px;'>";
+echo "<table style='float: left; margin-left: 10px; margin-right: 5px;'>";
 echo '<tr><td><b>Actives</b></td></tr>';
 echo "<tr>";
 echo "<td>";
 echo "<b>Surnom</b>";
 echo "</td>";
 echo "<td>";
-echo "<b>Creances</b>";
+echo "<b>Créances</b>";
 echo "</td>";
 echo "</tr>";
 
@@ -53,14 +53,14 @@ while ($donnees = $response->fetch()) {
 echo '</table>';
 
 
-echo "<table style='float: left;'>";
+echo "<table style='float: left; margin-left: 10px'>";
 echo '<tr><td><b>Toutes</b></td></tr>';
 echo "<tr>";
 echo "<td>";
 echo "<b>Surnom</b>";
 echo "</td>";
 echo "<td>";
-echo "<b>Creances</b>";
+echo "<b>Créances</b>";
 echo "</td>";
 echo "</tr>";
 
