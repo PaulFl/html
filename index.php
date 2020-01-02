@@ -23,7 +23,8 @@
             <b style="font-size: 1.1em">Espace de Zynahpapa: </b><br>
             <a href="tresorerie/add_transaction.php">Nouvelle dépenses</a><br>
             <a href="phpmyadmin">Données trésorerie</a><br>
-            <a href="tresorerie/worst_debts.php">Dettes</a><br>
+            <a href="tresorerie/worst_debts.php">Dettes</a>
+            <a href="tresorerie/best_bankers.php">Banquiers</a><br>
             <a href="tresorerie/connections.php">Stats</a>
             <a href="tresorerie/activity_log.php">Logs</a>
         </td>
