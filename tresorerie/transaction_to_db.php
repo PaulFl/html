@@ -85,7 +85,6 @@ while ($donnees = $reponse->fetch()) {
 echo "<br>";
 echo "ENREGISTRÉ, NE PAS RAFRAICHIR LA PAGE";
 
-
 ?>
 
 <form>
