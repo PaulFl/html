@@ -68,8 +68,10 @@ $prix_personne = $_POST['montant'] / $nombre_consommateurs;
 $prix_personne = round($prix_personne, 2, PHP_ROUND_HALF_UP);
 echo "Montant par personne: " . $prix_personne . "€<br>";
 
+$destinataires_mail = '';
 
-$reponse = $bdd->query('SELECT surnom, id FROM users');
+
+$reponse = $bdd->query('SELECT surnom, id, mail_address FROM users');
 while ($donnees = $reponse->fetch()) {
     if (isset($_POST[$donnees['surnom']]) && $donnees['id'] != $creancier) {
         $prix_a_payer = $prix_personne * $_POST["coef_" . $donnees['surnom']];
@@ -80,10 +82,20 @@ while ($donnees = $reponse->fetch()) {
         $last_transac = $response->fetch();
         $bdd->exec("INSERT INTO logs (datetime, user_id, transaction_id, action) values ('" . date('Y-m-d H:i:s') . "', " . 0 . ", " . $last_transac['Id'] . ", 'add')");
 
+        if ($donnees['mail_address'] != ''){
+            $destinataires_mail = $destinataires_mail . $donnees['mail_address'] . ', ';
+        }
     }
 }
 echo "<br>";
 echo "ENREGISTRÉ, NE PAS RAFRAICHIR LA PAGE";
+
+echo '<br><br>Mails envoyés pour: ' . $destinataires_mail;
+
+$subject = 'Dette trésorerie X3 - Mail auto';
+$message = 'Salut, tu as une nouvelle dette à régler, go sur x3lesang.fleury.io';
+$headers = 'From: paul.fleuryp@gmail.com';
+echo mail($destinataires_mail,$subject,$message,$headers);
 
 ?>
 
