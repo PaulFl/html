@@ -95,7 +95,7 @@ echo '<br><br>Mails envoyés pour: ' . $destinataires_mail;
 $subject = 'Dette trésorerie X3 - Mail auto';
 $message = 'Salut, tu as une nouvelle dette à régler, go sur x3lesang.fleury.io';
 $headers = 'From: paul.fleuryp@gmail.com';
-echo mail($destinataires_mail,$subject,$message,$headers);
+mail($destinataires_mail,$subject,$message,$headers);
 
 ?>
 
