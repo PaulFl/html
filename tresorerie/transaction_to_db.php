@@ -93,7 +93,7 @@ echo "ENREGISTRÉ, NE PAS RAFRAICHIR LA PAGE";
 echo '<br><br>Mails envoyés pour: ' . $destinataires_mail;
 
 $subject = 'Dette trésorerie X3 - Mail auto';
-$message = 'Salut, tu as une nouvelle dette à régler, go sur x3lesang.fleury.io';
+$message = 'Salut bg, tu as une nouvelle dette à régler envers ' . $_POST['creancier'] . ' (' . $_POST['title'] . '), go sur x3lesang.fleury.io';
 $headers = 'From: paul.fleuryp@gmail.com';
 mail($destinataires_mail,$subject,$message,$headers);
 
