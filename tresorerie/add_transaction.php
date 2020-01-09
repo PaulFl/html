@@ -99,7 +99,11 @@
         </select>
         <br>
         <br>
-        <input type="submit" value="Ça part"/>
+        <input onclick="function display_mail_info() {
+                document.getElementById('mail_info').value = '    Envoi des mails en cours...';
+        }
+        display_mail_info()" type="submit" value="Ça part"/><div id="mail_info"></div>
 </form>
+<br><br><br><br>
 </body>
 </html>
