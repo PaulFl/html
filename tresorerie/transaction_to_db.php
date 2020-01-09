@@ -61,7 +61,7 @@ echo '<table><tr><td><b>Récapitulatif</b></td></tr>
 <tr><td><b>Date</b></td><td>' . $_POST['date'] . '</td></tr>
 <tr><td><b>Créancier</b></td><td>' . $_POST['creancier'] . '</td></tr>
 <tr><td><b>Montant total</b></td><td>' .$_POST['montant'] . '€</td></tr>
-<tr><td><b>Nombre de consommateurs</b></td><td>' .$nombre_consommateurs . '</td></tr>
+<tr><td><b>Nombre de consommateurs (somme coefs)</b></td><td>' .$nombre_consommateurs . '</td></tr>
 <tr><td><b>Montant par personne (coef 1)</b></td><td>' .$prix_personne . '€</td></tr>'
 ;
 echo '</table><br><br>';
