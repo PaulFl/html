@@ -100,9 +100,9 @@
         <br>
         <br>
         <input onclick="function display_mail_info() {
-                document.getElementById('mail_info').value = '    Envoi des mails en cours...';
+                document.getElementById('mail_info').textContent = ' Envoi des mails en cours...';
         }
-        display_mail_info()" type="submit" value="Ça part"/><div id="mail_info"></div>
+        display_mail_info()" type="submit" value="Ça part"/><br><br><div id="mail_info"></div>
 </form>
 <br><br><br><br>
 </body>
