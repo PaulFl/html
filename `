@@ -1,0 +1,292 @@
+achat kro
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch master
+# Your branch is up to date with 'origin/master'.
+#
+# Changes to be committed:
+#	modified:   ../index.php
+#	new file:   achat-kros.css
+#	new file:   achat_kros.php
+#	new file:   kros_to_db.php
+#
+# ------------------------ >8 ------------------------
+# Do not modify or remove the line above.
+# Everything below it will be ignored.
+diff --git a/index.php b/index.php
+index af415a6..bb7ce31 100644
+--- a/index.php
++++ b/index.php
+@@ -22,6 +22,7 @@
+         <td style="line-height: 1.8;">
+             <b style="font-size: 1.1em">Espace de Zynahpapa: </b><br>
+             <a href="tresorerie/add_transaction.php">Nouvelle dépenses</a><br>
++            <a href="tresorerie/achat_kros.php">Achat kro</a><br>
+             <a href="phpmyadmin">Données trésorerie</a><br>
+             <a href="tresorerie/worst_debts.php">Dettes</a>
+             <a href="tresorerie/best_bankers.php">Banquiers</a><br>
+diff --git a/tresorerie/achat-kros.css b/tresorerie/achat-kros.css
+new file mode 100644
+index 0000000..207b8f6
+--- /dev/null
++++ b/tresorerie/achat-kros.css
+@@ -0,0 +1,66 @@
++html {
++    font-family: sans-serif;
++}
++
++caption {
++    padding: 10px;
++}
++
++label span
++{
++    padding-right: 10px;
++    display: inline-block;
++    text-align: right;
++    width: 125px;
++}
++
++img {
++    max-width: 500px;
++}
++
++#titleAndArray {
++    float: left;
++    padding-top: 20px;
++    padding-left: 20px;
++    padding-right: 20px;
++    padding-bottom: 10px;
++}
++
++#imgAndCaption {
++    float: left;
++    padding-left: 5px;
++    padding-right: 5px;
++}
++
++@media (max-width: 800px) {
++    html {
++        font-family: sans-serif;
++    }
++
++    caption {
++        padding: 10px;
++    }
++
++    label span
++    {
++        display: inline-block;
++        text-align: left;
++        width: 68px;
++    }
++
++    img {
++        max-width: 100%;
++    }
++
++    #titleAndArray {
++        padding-top: 5px;
++        padding-bottom: 10px;
++    }
++
++    #imgAndCaption {
++        max-width: 500px;
++        float: left;
++        padding-left: 0px;
++        padding-right: 0px;
++    }
++}
+\ No newline at end of file
+diff --git a/tresorerie/achat_kros.php b/tresorerie/achat_kros.php
+new file mode 100644
+index 0000000..a62df0d
+--- /dev/null
++++ b/tresorerie/achat_kros.php
+@@ -0,0 +1,73 @@
++<!DOCTYPE html>
++<html>
++<head>
++    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
++    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
++    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
++    <link rel="manifest" href="/site.webmanifest">
++    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#de000a">
++    <meta name="msapplication-TileColor" content="#da532c">
++    <meta name="msapplication-config" content="/browserconfig.xml">
++    <meta name="theme-color" content="#ffffff">
++    <meta charset="utf-8"/>
++    <meta name="viewport" content="width=device-width, initial-scale=1.0">
++    <title>Trésorerie X3 - Achat Kro</title>
++</head>
++<link href="achat-kros.css" rel="stylesheet" type="text/css">
++<body>
++<form>
++    <br>
++    <input type="button" value="Accueil" onclick="window.location.href='../index.php'"/>
++</form>
++<br>
++<b>Achat de kro: </b>
++<br><br>
++<form action="kros_to_db.php" method="post">
++
++    <label><span><b>Date: </b></span><input type="date" name="date"
++                                            value="<?php date_default_timezone_set('Europe/Paris');
++                                            echo date('Y-m-d'); ?>"/></label>
++    <br>
++    <label><span><b>Nombre de kros: </b></span><input type="number" name="nb_kros" step="1"/></label>
++    <br>
++    <label><span><b>Montant: </b></span><input type="number" step="0.01" name="montant"/></label>
++    <br><br>
++
++    <b>Qui a payé (le iencli):</b>
++    <select name="creancier">
++        <?php
++        try {
++            $bdd = new PDO('mysql:host=localhost;dbname=x3_tresorerie;charset=utf8', 'x3_tresorerie_website', 'x3trezsafe');
++        } catch (Exception $e) {
++            die('Erreur : ' . $e->getMessage());
++        }
++        echo "<option disabled>--- 0As ---</option>";
++        $reponse = $bdd->query('SELECT surnom, cat from users WHERE cat=\'0A\' order by surnom');
++        while ($donnees = $reponse->fetch()) {
++            echo "<option value='" . $donnees['surnom'] . "'>" . $donnees['surnom'] . "</option>";
++        }
++        echo "<option disabled>--- 2As ---</option>";
++        $reponse = $bdd->query('SELECT surnom, cat from users WHERE cat=\'2A\' order by surnom');
++        while ($donnees = $reponse->fetch()) {
++            echo "<option value='" . $donnees['surnom'] . "'>" . $donnees['surnom'] . "</option>";
++        }
++        echo "<option disabled>--- AFFs ---</option>";
++        $reponse = $bdd->query('SELECT surnom, cat from users WHERE cat=\'AFF\' order by surnom');
++        while ($donnees = $reponse->fetch()) {
++            echo "<option value='" . $donnees['surnom'] . "'>" . $donnees['surnom'] . "</option>";
++        }
++        echo "<option disabled>--- nAs ---</option>";
++        $reponse = $bdd->query('SELECT surnom, cat from users WHERE cat=\'nA\' order by surnom');
++        while ($donnees = $reponse->fetch()) {
++            echo "<option value='" . $donnees['surnom'] . "'>" . $donnees['surnom'] . "</option>";
++        }
++
++        ?>
++    </select>
++    <br>
++    <br>
++    <input  type="submit" value="Ça part"/><br><br>
++</form>
++<br><br><br><br>
++</body>
++</html>
+diff --git a/tresorerie/kros_to_db.php b/tresorerie/kros_to_db.php
+new file mode 100644
+index 0000000..8661061
+--- /dev/null
++++ b/tresorerie/kros_to_db.php
+@@ -0,0 +1,106 @@
++<!DOCTYPE html>
++<html>
++<head>
++    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
++    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
++    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
++    <link rel="manifest" href="/site.webmanifest">
++    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#de000a">
++    <meta name="msapplication-TileColor" content="#da532c">
++    <meta name="msapplication-config" content="/browserconfig.xml">
++    <meta name="theme-color" content="#ffffff">
++    <meta charset="utf-8"/>
++    <meta name="viewport" content="width=device-width, initial-scale=1.0">
++    <title>Trésorerie X3 - Achat kros</title>
++</head>
++<link href="minimal-table-responsive.css" rel="stylesheet" type="text/css">
++<body>
++<form>
++    <br>
++    <input type="button" value="Retour" onclick="window.location.href='../index.php'"/>
++</form>
++<br>
++ENREGISTRÉ, NE PAS RAFRAICHIR LA PAGE
++<br><br>
++<?php
++date_default_timezone_set('Europe/Paris');
++try {
++    $bdd = new PDO('mysql:host=localhost;dbname=x3_tresorerie;charset=utf8', 'x3_tresorerie_website', 'x3trezsafe');
++} catch (Exception $e) {
++    die('Erreur : ' . $e->getMessage());
++}
++
++$nombre_kros = $_POST['nb_kros'];
++$prix_tot = $_POST['montant'];
++$prix_unite = round($prix_tot/$nombre_kros, 6, PHP_ROUND_HALF_UP);
++
++
++$reponse = $bdd->query("SELECT id from users where surnom = '" . $_POST['creancier'] . "'");
++$creancier = $reponse->fetch()['id'];
++
++
++
++echo '<table><tr><td><b>Récapitulatif</b></td></tr>
++<tr><td><b>Date</b></td><td>' . $_POST['date'] . '</td></tr>
++<tr><td><b>Créancier</b></td><td>' . $_POST['creancier'] . '</td></tr>
++<tr><td><b>Nombre kros</b></td><td>' .$nombre_kros . '</td></tr>
++<tr><td><b>Prix total</b></td><td>' .$prix_tot . '€</td></tr>
++<tr><td><b>Prix kro</b></td><td>' .$prix_unite . '€</td></tr>';
++echo '</table><br><br>';
++
++$bdd->exec("INSERT INTO achats_kro (creancier, nb_kros, prix_kro, datetime) values (" . $creancier . ", " . $nombre_kros . ", " . $prix_unite . ", '" . $_POST['date'] .  "')");
++
++//echo '<table>
++//<tr><td><b>Consommateur</b></td><td><b>Coef</b></td><td><b>Montant</b></td><td><b>Id</b></td></tr>';
++//
++//
++//
++//
++//while ($donnees = $reponse->fetch()) {
++//    if (isset($_POST[$donnees['surnom']]) && $donnees['id'] == $creancier) {
++//        $prix_a_payer = $prix_personne * $_POST["coef_" . $donnees['surnom']];
++//        $prix_a_payer = round($prix_a_payer, 2, PHP_ROUND_HALF_UP);
++//        echo '<tr><td>' . $donnees['surnom'] . '</td><td>' . $_POST["coef_" . $donnees['surnom']] . '</td><td>' . $prix_a_payer . '€</td></tr>';
++//    }
++//}
++//
++//
++//$reponse = $bdd->query('SELECT surnom, id, mail_address FROM users');
++//while ($donnees = $reponse->fetch()) {
++//    if (isset($_POST[$donnees['surnom']]) && $donnees['id'] != $creancier) {
++//        $prix_a_payer = $prix_personne * $_POST["coef_" . $donnees['surnom']];
++//        $prix_a_payer = round($prix_a_payer, 2, PHP_ROUND_HALF_UP);
++//        $bdd->exec("INSERT INTO transactions (creancier, debiteur, montant, motif, date) values (" . $creancier . ", " . $donnees['id'] . ', ' . $prix_a_payer . ", '" . $_POST['title'] . "', '" . $_POST['date'] .  "')");
++//
++//        $response = $bdd->query('Select transactions.Id from transactions order by  transactions.Id desc limit 1');
++//        $last_transac = $response->fetch();
++//        $bdd->exec("INSERT INTO logs (datetime, user_id, transaction_id, action) values ('" . date('Y-m-d H:i:s') . "', " . 0 . ", " . $last_transac['Id'] . ", 'add')");
++//
++//        $transacid = $last_transac['Id'];
++//
++//        echo '<tr><td>' . $donnees['surnom'] . '</td><td>' . $_POST["coef_" . $donnees['surnom']] . '</td><td>' . $prix_a_payer . '€</td><td>' . "<form action=\"transaction_recap.php\" method=\"post\"><input type='hidden' name='transacid' value='$transacid'><input disabled type=\"submit\" value=$transacid></form></td></tr>";
++//
++//        if ($donnees['mail_address'] != ''){
++//            $destinataires_mail = $destinataires_mail . $donnees['mail_address'] . ', ';
++//        }
++//    }
++//}
++//
++//echo '</table>';
++
++
++//echo '<br>Mails envoyés pour: ' . $destinataires_mail;
++//
++//$subject = 'Dette trésorerie X3 - Mail auto';
++//$message = 'Salut bg, tu as une nouvelle dette à régler envers ' . $_POST['creancier'] . ' (' . $_POST['title'] . '), go sur x3lesang.fleury.io';
++//$headers = 'From: paul.fleuryp@gmail.com';
++//mail($destinataires_mail,$subject,$message,$headers);
++
++?>
++
++
++
++
++
++</body>
++</html>
