@@ -72,6 +72,12 @@ if ($handle = opendir($path)) {
 
     usort($imgs,'sortLen');
 
+    for ($j = 0; $j < $i; $j++) {
+        echo $j;
+        echo '|';
+        echo $imgs[$j];
+    }
+
     $today = getdate();
     $day = $today['mon']*31 + $today['mday'];
     //srand($today['mday'] + $today['mon']);
