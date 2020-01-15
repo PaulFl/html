@@ -65,12 +65,20 @@ if ($handle = opendir($path)) {
         }
     }
     closedir($handle);
+
+    function sortLen($a,$b){
+        return strlen($a)-strlen($b);
+    }
+
+    usort($imgs,'sortLen');
+
     $today = getdate();
     $day = $today['mon']*31 + $today['mday'];
     //srand($today['mday'] + $today['mon']);
 
     //$r = rand(0, $i - 1);
     $r = $day % $i;
+    $r = 47;
 
     echo "<a href=\"tresorerie/login.php\"><img src=\"x3_photos/{$imgs[$r]}\" alt=\"Etage roi\"/>";
 

@@ -34,6 +34,11 @@
                 echo $file;
             }
         }
+        echo '<br>';
+        natcasesort($imgs);
+        foreach ($imgs as $im){
+            echo $im;
+        }
         closedir($handle);
         $today = getdate();
         $day = $today['mon']*31 + $today['mday'];
