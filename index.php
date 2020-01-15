@@ -72,11 +72,6 @@ if ($handle = opendir($path)) {
 
     usort($imgs,'sortLen');
 
-    for ($j = 0; $j < $i; $j++) {
-        echo $j;
-        echo '|';
-        echo $imgs[$j];
-    }
 
     $today = getdate();
     $day = $today['mon']*31 + $today['mday'];
@@ -84,7 +79,6 @@ if ($handle = opendir($path)) {
 
     //$r = rand(0, $i - 1);
     $r = $day % $i;
-    echo $r;
     echo "<a href=\"tresorerie/login.php\"><img src=\"x3_photos/{$imgs[$r]}\" alt=\"Etage roi\"/>";
 
 }
