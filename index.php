@@ -67,7 +67,7 @@ if ($handle = opendir($path)) {
     closedir($handle);
 
     function sortLen($a,$b){
-        return strlen($a)-strlen($b);
+        return strlen($a) - strlen($b) ?: strcmp($a, $b);
     }
 
     usort($imgs,'sortLen');
