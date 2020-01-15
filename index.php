@@ -78,8 +78,7 @@ if ($handle = opendir($path)) {
 
     //$r = rand(0, $i - 1);
     $r = $day % $i;
-    $r = 47;
-
+    echo $r;
     echo "<a href=\"tresorerie/login.php\"><img src=\"x3_photos/{$imgs[$r]}\" alt=\"Etage roi\"/>";
 
 }
