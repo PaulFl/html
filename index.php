@@ -74,7 +74,12 @@ if ($handle = opendir($path)) {
 
 
     $today = getdate();
-    $day = $today['mon']*31 + $today['mday'];
+    $aprem = ($today['hours'] > 12 || ($today['hours'] == 11 && $today['minutes'] >= 32));
+    $aprem_value = 0;
+    if ($aprem) {
+        $aprem_value = 1;
+    }
+    $day = $today['mon']*62 + $today['mday']*2 + $aprem_value - 51;
     //srand($today['mday'] + $today['mon']);
 
     //$r = rand(0, $i - 1);
