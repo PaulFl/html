@@ -44,29 +44,29 @@
     $stock_kros = $reponse->fetch();
     $stock_kros = $stock_kros['stock'];
     echo $stock_kros;
-    echo "</b><br><br>";
-    echo " <b>Qui a payé:</b>
-        <select name=\"creancier\">";
-    echo "<option disabled>--- 0As ---</option>";
-    $reponse = $bdd->query('SELECT surnom, cat from users WHERE cat=\'0A\' order by surnom');
-    while ($donnees = $reponse->fetch()) {
-        echo "<option value='" . $donnees['surnom'] . "'>" . $donnees['surnom'] . "</option>";
-    }
-    echo "<option disabled>--- 2As ---</option>";
-    $reponse = $bdd->query('SELECT surnom, cat from users WHERE cat=\'2A\' order by surnom');
-    while ($donnees = $reponse->fetch()) {
-        echo "<option value='" . $donnees['surnom'] . "'>" . $donnees['surnom'] . "</option>";
-    }
-    echo "<option disabled>--- AFFs ---</option>";
-    $reponse = $bdd->query('SELECT surnom, cat from users WHERE cat=\'AFF\' order by surnom');
-    while ($donnees = $reponse->fetch()) {
-        echo "<option value='" . $donnees['surnom'] . "'>" . $donnees['surnom'] . "</option>";
-    }
-    echo "<option disabled>--- nAs ---</option>";
-    $reponse = $bdd->query('SELECT surnom, cat from users WHERE cat=\'nA\' order by surnom');
-    while ($donnees = $reponse->fetch()) {
-        echo "<option value='" . $donnees['surnom'] . "'>" . $donnees['surnom'] . "</option>";
-    }
+    //   echo "</b><br><br>";
+//    echo " <b>Qui a payé:</b>
+//        <select name=\"creancier\">";
+//    echo "<option disabled>--- 0As ---</option>";
+//    $reponse = $bdd->query('SELECT surnom, cat from users WHERE cat=\'0A\' order by surnom');
+//    while ($donnees = $reponse->fetch()) {
+//        echo "<option value='" . $donnees['surnom'] . "'>" . $donnees['surnom'] . "</option>";
+//    }
+//    echo "<option disabled>--- 2As ---</option>";
+//    $reponse = $bdd->query('SELECT surnom, cat from users WHERE cat=\'2A\' order by surnom');
+//    while ($donnees = $reponse->fetch()) {
+//        echo "<option value='" . $donnees['surnom'] . "'>" . $donnees['surnom'] . "</option>";
+//    }
+//    echo "<option disabled>--- AFFs ---</option>";
+//    $reponse = $bdd->query('SELECT surnom, cat from users WHERE cat=\'AFF\' order by surnom');
+//    while ($donnees = $reponse->fetch()) {
+//        echo "<option value='" . $donnees['surnom'] . "'>" . $donnees['surnom'] . "</option>";
+//    }
+//    echo "<option disabled>--- nAs ---</option>";
+//    $reponse = $bdd->query('SELECT surnom, cat from users WHERE cat=\'nA\' order by surnom');
+//    while ($donnees = $reponse->fetch()) {
+//        echo "<option value='" . $donnees['surnom'] . "'>" . $donnees['surnom'] . "</option>";
+//    }
     echo "</select><br><br><b>Qui a bu:</b><br><br>";
 
     echo "<b>0As:   </b><br><table>";
