@@ -17,33 +17,53 @@
 <link href="minimal-table.css" rel="stylesheet" type="text/css">
 <body>
 <p><b>BUZZ Station Demo</b></p>
-<form action="http://buzz-power.com:5000" method="post">
+<form action="http://buzz-power.com:5000/BUZZ061912000001/1/unlock_request" method="post">
     <p>
-        Cabinet ID:
-        <label>
-            <input type="number" name="cabinet_id" value="0">
-        </label>
+
+        <input type="submit" value="Unlock 1">
         <br><br>
-        Battery slot:
-        <label>
-            <input type="number" name="slot" value="1">
-        </label>
+    </p>
+</form>
+<form action="http://buzz-power.com:5000/BUZZ061912000001/2/unlock_request" method="post">
+    <p>
+
+        <input type="submit" value="Unlock 2">
         <br><br>
-        <input type="submit" value="Unlock">
+    </p>
+</form>
+<form action="http://buzz-power.com:5000/BUZZ061912000001/3/unlock_request" method="post">
+    <p>
+
+        <input type="submit" value="Unlock 3">
+        <br><br>
+    </p>
+</form>
+<form action="http://buzz-power.com:5000/BUZZ061912000001/4/unlock_request" method="post">
+    <p>
+
+        <input type="submit" value="Unlock 4">
+        <br><br>
+    </p>
+</form>
+<form action="http://buzz-power.com:5000/BUZZ061912000001/5/unlock_request" method="post">
+    <p>
+
+        <input type="submit" value="Unlock 5">
+        <br><br>
+    </p>
+</form>
+<form action="http://buzz-power.com:5000/BUZZ061912000001/6/unlock_request" method="post">
+    <p>
+
+        <input type="submit" value="Unlock 6">
         <br><br>
     </p>
 </form>
 <p>---------------------------------------------</p>
 <br><br>
-<form action="http://buzz-power.com:5000/inventory_request" method="post">
-    <p>
-        Cabinet ID:
-        <label>
-            <input type="number" name="cabinet_id" value="0">
-        </label>
-        <br><br>
-        <input type="submit" value="Inventory">
-    </p>
-</form>
+
+<p>
+    <a href="http://buzz-power.com:5000/BUZZ061912000001/inventory_request">Inventory</a>
+</p>
 </body>
 </html>
