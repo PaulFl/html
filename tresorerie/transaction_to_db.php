@@ -113,6 +113,7 @@ $message = "<div><span style=\"color: #ff00ff; font-size: 14pt;\">Salut bg, tu a
 <div></div>
 <div></div>
 <div></div>
+<br><br><br><br>
 <div></div>
 <div>
 <div style=\"font-family: arial, helvetica, sans-serif; font-size: 12pt; color: #000000;\">
