@@ -137,7 +137,7 @@ $message = "<div><span style=\"color: #ff00ff; font-size: 14pt;\">Salut bg, tu a
 </div>
 </div>
 </div>
-</div>"
+</div>";
     $headers  = 'MIME-Version: 1.0' . "\r\n";
 $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
