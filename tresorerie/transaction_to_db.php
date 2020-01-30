@@ -109,7 +109,7 @@ echo '<br>Mails envoyés pour: ' . $destinataires_mail;
 
 $subject = 'Dette trésorerie X3 - Mail auto';
 $message = 'Salut bg, tu as une nouvelle dette à régler envers ' . $_POST['creancier'] . ' (' . $_POST['title'] . '), go sur x3lesang.fleury.io';
-$message = "<div><span style=\"color: #ff00ff; font-size: 14pt;\">Salut bg, tu as une nouvelle dette à régler envers " . $_POST['creancier'] . ' (' . $_POST['title'] . "), go sur x3lesang.fleury.io</span></div>
+$message = "<div><span style=\"color: #ff00ff; font-size: 14pt;\">Salut bg, tu as une nouvelle dette &agrave; r&eacute;gler envers " . $_POST['creancier'] . ' (' . $_POST['title'] . "), go sur x3lesang.fleury.io</span></div>
 <div></div>
 <div></div>
 <div></div>
