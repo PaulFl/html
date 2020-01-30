@@ -109,7 +109,42 @@ echo '<br>Mails envoyés pour: ' . $destinataires_mail;
 
 $subject = 'Dette trésorerie X3 - Mail auto';
 $message = 'Salut bg, tu as une nouvelle dette à régler envers ' . $_POST['creancier'] . ' (' . $_POST['title'] . '), go sur x3lesang.fleury.io';
-$headers = 'From: paul.fleuryp@gmail.com';
+$message = "<div><span style=\"color: #ff00ff; font-size: 14pt;\">Salut bg, tu as une nouvelle dette à régler envers " . $_POST['creancier'] . ' (' . $_POST['title'] . "), go sur x3lesang.fleury.io\" style=\"color: #ff00ff;\">x3lesang.fleury.io</a></span></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div>
+<div style=\"font-family: arial, helvetica, sans-serif; font-size: 12pt; color: #000000;\">
+<div style=\"color: #1a8ec8; font-family: calibri; font-weight: 500;\">
+<div style=\"float: left;\"><img id=\"picture\" width=\"350\" height=\"350\" src=\"https://x3lesang.fleury.io/LEMEME.png\" /></div>
+<div style=\"display: inline-block; margin-left: 10px; padding-left: 5px; border-left: 2px solid #1a8ec8; font-size: 15px;\">
+<div>
+<h1 style=\"font-size: 18px; margin: 0px 0px 5px; color: #2067ba;\"></h1>
+<h1 style=\"font-size: 18px; margin: 0px 0px 5px; color: #2067ba;\"></h1>
+<h1 style=\"font-size: 18px; margin: 0px 0px 5px; color: #2067ba;\"></h1>
+<h1 style=\"font-size: 18px; margin: 0px 0px 5px; color: #2067ba;\"><span style=\"font-size: 18pt;\">Ryko (Paul Fleury)</span></h1>
+<span style=\"font-size: 14pt;\"></span></div>
+<div><span style=\"font-size: 14pt;\">VP Kro Supply Chain</span></div>
+<div><span style=\"font-size: 14pt;\">Cheff&eacute; par Zynahpapa</span> <span style=\"font-size: 9pt;\">(Un chef c'est fait pour cheffer)</span></div>
+<div style=\"font-size: 13px; color: #005a95; margin-top: 5px; margin-bottom: 5px;\"><span style=\"font-size: 13pt;\">paul.fleury<a style=\"text-decoration: none; color: #005a95;\" title=\"Me contacter\" class=\"border\" href=\"mailto:paul.fleury@ecl19.ec-lyon.fr\" target=\"_blank\">@ecl19.ec-lyon.fr</a></span><br /><span style=\"font-size: 13pt;\"> +33 (0)6 51 23 97 63</span></div>
+<div style=\"font-size: 13px; color: #005a95; margin-top: 5px; margin-bottom: 5px;\"></div>
+<div style=\"font-size: 13px; color: #005a95; margin-top: 5px; margin-bottom: 5px;\"></div>
+<div style=\"font-size: 13px; color: #005a95; margin-top: 5px; margin-bottom: 5px;\"></div>
+<div style=\"font-size: 13px; color: #005a95; margin-top: 5px; margin-bottom: 5px;\"></div>
+<div style=\"font-size: 13px; color: #005a95; margin-top: 5px; margin-bottom: 5px;\"></div>
+<div style=\"font-size: 13px; color: #005a95; margin-top: 5px; margin-bottom: 5px;\"></div>
+</div>
+</div>
+</div>
+</div>"
+    $headers  = 'MIME-Version: 1.0' . "\r\n";
+$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+// Create email headers
+$headers .= 'From: x3trez@gmail.com'."\r\n".
+    'Reply-To: x3trez@gmail.com'."\r\n" .
+    'X-Mailer: PHP/' . phpversion();
 mail($destinataires_mail,$subject,$message,$headers);
 
 ?>
